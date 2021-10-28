@@ -1,9 +1,8 @@
 const mongoose = require('mongoose');
-
-const { Schema } = mongoose;
+const { Schema, model } = require('mongoose');
 const bcrypt = require('bcrypt');
-const Team = require('/Team');
-const Schedule = require('Schedule');
+const { Team, Schedule } = require('../models');
+
 
 const userSchema = new Schema({
     firstName: {
@@ -33,8 +32,8 @@ const userSchema = new Schema({
         required: true,
         minlength: 5
     },
-    teams: [Team.schema],
-    schedule: [Schedule.schema]
+   // teams: [Team.schema],
+   // schedule: [Schedule.schema]
 })
 
 userSchema.pre('save', async function(next) {
