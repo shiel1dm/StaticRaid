@@ -1,6 +1,3 @@
-const ___ = require('./___')
-const ___ = require('./___')
-const ___ = require('./___')
+const User = require('./User');
 
-
-module.exports = { ___, ___, ___, etc};
+module.exports = { User };
