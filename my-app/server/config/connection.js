@@ -1,7 +1,7 @@
 const mongoose = require('mongoose');
 
-/* Double check if /static raid should be on the end of the localhost or we just use 3001? */
-mongoose.connect(process.env.MONGODB_URI || 'mongodb://localhost/staticraid', {
+
+mongoose.connect(process.env.MONGODB_URI || 'mongodb://localhost/StaticRaidDB', {
   useNewUrlParser: true,
   useUnifiedTopology: true,
   useCreateIndex: true,
