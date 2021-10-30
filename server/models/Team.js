@@ -13,7 +13,12 @@ const teamSchema = new Schema({
         enum: ['game, raid, guild, party, server, social'],
         required: true,
         trim: true
-    }    
+    },    
+    teamSize: {
+        type: Number,
+        require: true
+    }
+
 })
 
 const Team = mongoose.model('Team', teamSchema);
