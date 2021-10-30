@@ -4,14 +4,14 @@ import { }
 
 
 function Home() {
-    const [offsetY, setOffsetY] = useState(0);
-    const handleScroll = setOffsetY(window.pageXOffset);
+    // const [offsetY, setOffsetY] = useState(0);
+    // const handleScroll = setOffsetY(window.pageXOffset);
 
-    useEffect(() => {
-        window.addEventListener('scroll', handleScroll);
+    // useEffect(() => {
+        // window.addEventListener('scroll', handleScroll);
 
-        return () => window.removeEventListener('scroll', handleScroll);
-    }, []);
+        // return () => window.removeEventListener('scroll', handleScroll);
+    // }, []);
 
     const renderContent = () => (
         <>
@@ -26,12 +26,9 @@ function Home() {
          </div>
          </>
     )
-//     return (
-//         <section className='Parallax'>
-//             <div className='parallax-background' style={{ transform: 'translateY($-{offsetY * 0.5}px)' }} />
-//             <div className='content'>(renderContent())</div>
-//          </section>
-//     )
-// }
+    return (
+
+    )
+}
 
 export default Home;
