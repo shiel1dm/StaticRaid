@@ -1,34 +1,31 @@
-import React, { useEffect, useState } from 'react'
-import "./Home.css";
-import { }
+import React, { useEffect, useState, Component } from 'react'
+import { createTheme } from '@mui/material/styles';
+
+const theme = createTheme({
+    palette: {
+      primary: {
+        light: '#757ce8',
+        main: '#3f50b5',
+        dark: '#002884',
+        contrastText: '#fff',
+      },
+      secondary: {
+        light: '#ff7961',
+        main: '#f44336',
+        dark: '#ba000d',
+        contrastText: '#000',
+      },
+    },
+  });
 
 
 function Home() {
-    // const [offsetY, setOffsetY] = useState(0);
-    // const handleScroll = setOffsetY(window.pageXOffset);
-
-    // useEffect(() => {
-        // window.addEventListener('scroll', handleScroll);
-
-        // return () => window.removeEventListener('scroll', handleScroll);
-    // }, []);
-
-    const renderContent = () => (
-        <>
-        <div className='heading'>
-        <h1 className='Text'>Lorem.</h1>
-        <h2 className='caption'>
-                 Lorem ipsum, dolor sit amet consectetur adipisicing.
-            </h2>
-         </div>
-         <div className='cta'>
-             <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Facilis!</p>
-         </div>
-         </>
-    )
     return (
-
+        <div>
+            
+        </div>
     )
 }
 
-export default Home;
+export default Home
+
