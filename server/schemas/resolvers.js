@@ -7,9 +7,23 @@ const resolvers = {
     users: async () => {
       return User.find();
     },
+<<<<<<< HEAD
     user: async (parent, { username }) => {
       return User.findOne({ username });
     },
+=======
+
+    user: async (parent, { userId }) => {
+      return User.findOne({ _id: userId });
+    },
+
+    me: async (parent, args, context) => {
+      if (context.user) {
+        return User.findOne({ _id: context.user._id });
+      }
+      throw new AuthenticationError('You must be logged in!')
+    }
+>>>>>>> login/navbar_component
   },
 
   Mutation: {
@@ -33,6 +47,7 @@ const resolvers = {
 
       const token = signToken(user);
 
+<<<<<<< HEAD
       return { token, user };
     },
     },
@@ -40,3 +55,38 @@ const resolvers = {
 }
 
 module.exports = resolvers;
+=======
+    return { token, user };
+  },
+
+  addTeam: async (parent, { userId, team }, context) => {
+    if (context.user) {
+      return User.findOneAndUpdate(
+        { _id: userId },
+        {
+          $addToSet: { teams: team },
+        },
+        {
+          new: true,
+          runValidators: true,
+        }
+      );
+    }
+    throw new AuthenticationError('You must be logged in!');
+  },
+
+  removeTeam: async (parent, { team }, context) => {
+    if (context.user) {
+      return User.findOneAndUpdate(
+        { _id: context.user._id },
+        { $pull: { teams: team } },
+        { new: true }
+      );
+    }
+    throw new AuthenticationError('You must be logged in!');
+  },
+},
+};
+
+module.exports = resolvers;
+>>>>>>> login/navbar_component

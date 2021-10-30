@@ -8,6 +8,7 @@ const userSchema = new Schema({
     required: true,
     unique: true,
     trim: true,
+    minlength: 3
   },
   email: {
     type: String,
@@ -43,6 +44,7 @@ userSchema.methods.isCorrectPassword = async function (password) {
 
 const User = model('User', userSchema);
 
+<<<<<<< HEAD
 module.exports = User;
 =======
 const mongoose = require('mongoose');
@@ -101,3 +103,6 @@ const User = mongoose.model('User', userSchema);
   
 module.exports = User;
 >>>>>>> 342963d7b8f359b7d7dcc928bd89305abd40b439
+=======
+module.exports = User;
+>>>>>>> login/navbar_component

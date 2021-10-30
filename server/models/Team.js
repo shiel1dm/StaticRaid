@@ -3,6 +3,7 @@ const mongoose = require('mongoose');
 const { Schema } = mongoose;
 
 const teamSchema = new Schema({
+<<<<<<< HEAD
     teamName: {
         type: String,
         require: true,
@@ -13,6 +14,19 @@ const teamSchema = new Schema({
         require: true
     }
 
+=======
+    teamname: {
+        type: String,
+        required: true,
+        trim: true
+    },
+    grouptype: {
+        type: String,
+        enum: ['game, raid, guild, party, server, social'],
+        required: true,
+        trim: true
+    }    
+>>>>>>> login/navbar_component
 })
 
 const Team = mongoose.model('Team', teamSchema);
