@@ -38,10 +38,6 @@ const client = new ApolloClient({
 });
 
 function App() {
-<<<<<<< HEAD
-
-=======
->>>>>>> 342963d7b8f359b7d7dcc928bd89305abd40b439
   return (
     <ApolloProvider client={client}>
       <Router>

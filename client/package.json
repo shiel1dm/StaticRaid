@@ -8,22 +8,12 @@
     "@testing-library/react": "^11.2.7",
     "@testing-library/user-event": "^12.8.3",
     "graphql": "^15.4.0",
-<<<<<<< HEAD
-    "jquery.nicescroll": "^3.7.6",
-    "jwt-decode": "^3.1.2",
-    "react": "^17.0.2",
-    "react-dom": "^17.0.2",
-    "react-router-dom": "^5.2.0",
-    "react-scripts": "4.0.3",
-    "web-vitals": "^1.1.2"
-=======
     "jwt-decode": "^3.1.2",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
     "react-scripts": "4.0.3",
     "web-vitals": "^1.1.2",
     "react-router-dom": "^5.2.0"
->>>>>>> 342963d7b8f359b7d7dcc928bd89305abd40b439
   },
   "scripts": {
     "start": "react-scripts start",

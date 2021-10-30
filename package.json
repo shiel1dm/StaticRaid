@@ -17,13 +17,6 @@
     "concurrently": "^5.1.0"
   },
   "dependencies": {
-<<<<<<< HEAD:my-app/package.json
-    "express": "^4.17.1",
-    "inquirer": "^8.2.0",
-    "mongoose": "^6.0.12",
-    "web-vitals": "^2.1.2"
-=======
     "graphql": "^16.0.0"
->>>>>>> 342963d7b8f359b7d7dcc928bd89305abd40b439:package.json
   }
 }
