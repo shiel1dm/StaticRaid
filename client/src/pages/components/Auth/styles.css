@@ -1,0 +1,11 @@
+
+.card {
+    width: 300px;
+    margin: 30px auto;
+    background-color: #44014C;
+    box-sizing: border-box;
+}
+
+.title {
+    color:tomato;
+}
