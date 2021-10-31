@@ -13,7 +13,10 @@ import { BrowserRouter as Router, Route, Redirect, Switch } from 'react-router-d
 import Login from './pages/Signup';
 import Navbar from './pages/components/Navbar/Navbar';
 import Auth from './pages/components/Auth/Auth';
-import Home from './pages/Home';
+import Home from './pages/components/Homepage/Home';
+import Header from './pages/components/Homepage/Header';
+import About from './pages/components/Homepage/About';
+
 
 
 // Construct our main GraphQL API endpoint
@@ -46,6 +49,9 @@ function App() {
       <Router>
         <div>
       <Navbar />
+      <Home />
+      <Header />
+      <About />
       </div>
    <div>
           <Auth />
