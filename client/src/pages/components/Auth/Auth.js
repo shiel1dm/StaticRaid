@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Button, Grid, Container } from '@material-ui/core';
+import { Button, Box, Grid, Container } from '@material-ui/core';
 import { useMutation } from '@apollo/client';
 import { LOGIN_USER } from '../../../utils/mutations';
 
@@ -39,7 +39,20 @@ const Auth = () => {
         };
       
         return (
-        <Container>
+        <Box
+            component="form"
+            sx={{
+                display: 'inline',
+                alignItems: 'center',
+                bgcolor: 'background.paper',
+                overflow: 'hidden',
+                borderRadius: '12px',
+                boxShadow: 1,
+                fontWeight: 'bold',
+              }}
+            noValidate
+            autoComplete="off"
+          >
             <div className="col-12 col-lg-10">
                 <div className={styles.card}>
                     <h4 className={styles.title}>
@@ -61,7 +74,7 @@ const Auth = () => {
                 </form>
                 </div>
             </div>
-        </ Container>
+        </Box>
     );
 }
 
