@@ -13,15 +13,15 @@ export default function ScheduleCard() {
           component="img"
           height="140"
           image="/static/images/cards/contemplative-reptile.jpg"
-          alt="green iguana"
+          alt="Schedule"
         />
         <CardContent>
           <Typography gutterBottom variant="h5" component="div">
             Lizard
           </Typography>
           <Typography variant="body2" color="text.secondary">
-            Lizards are a widespread group of squamate reptiles, with over 6,000
-            species, ranging across all continents except Antarctica
+           Lorem ipsum dolor sit amet consectetur adipisicing elit. Aperiam facere voluptas distinctio praesentium corrupti temporibus aspernatur quia, quod repudiandae placeat?
+
           </Typography>
         </CardContent>
       </CardActionArea>

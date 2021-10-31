@@ -14,6 +14,8 @@ const styles = {
 };
 
 export default function TeamCard() {
+const classes = useStyles();
+
   return (
     <Card sx={{ maxWidth: 345 }}>
       <CardActionArea>
