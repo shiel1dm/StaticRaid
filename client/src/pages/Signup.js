@@ -1,20 +1,18 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
-
 import { useMutation } from '@apollo/client';
-import { ADD_USER } from '../utils/mutations.js';
-
+import { ADD_USER } from '../utils/mutations';
 import Auth from '../utils/auth';
 
-const Signup = () => {
-  const [formState, setFormState] = useState({
+function Signup(props) {
+  const [formState, setFormState] = useState({ 
     username: '',
-  });
-  const [addUser, { error, data }] = useMutation(ADD_USER);
+    email: '', 
+    password: '' });
+  const [addUser, {error, data}] = useMutation(ADD_USER);
 
   const handleChange = (event) => {
     const { name, value } = event.target;
-
     setFormState({
       ...formState,
       [name]: value,
@@ -25,16 +23,20 @@ const Signup = () => {
     event.preventDefault();
     console.log(formState);
 
-    try {
+try {
       const { data } = await addUser({
         variables: { ...formState },
       });
 
-      Auth.login(data.addUser.token);
-    } catch (e) {
-      console.error(e);
-    }
-  };
+   /* const token = data.addUser.token;
+    Auth.login(token);
+  } catch (e) {
+    console.error(e);
+  }
+*/
+
+  }};
+
 
   return (
     <main className="flex-row justify-center mb-4">
