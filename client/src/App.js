@@ -8,9 +8,14 @@ import {
   createHttpLink,
 } from '@apollo/client';
 import { setContext } from '@apollo/client/link/context';
-import { BrowserRouter as Router, Route } from 'react-router-dom';
+import { BrowserRouter, Router, Route, Redirect, Switch } from 'react-router-dom';
+import { Container } from '@material-ui/core';
+import Login from './pages/Auth/Login';
+import Signup from './pages/Auth/Signup';
+import Navbar from './pages/components/Navbar/Navbar';
+import Home from './pages/Home';
+import { useHistory } from "react-router-dom";
 
-import Login from './pages/Signup';
 
 
 // Construct our main GraphQL API endpoint
@@ -38,13 +43,32 @@ const client = new ApolloClient({
 });
 
 function App() {
+  const history = useHistory();
+  const user = JSON.parse(localStorage.getItem('profile'));
+
+  async function handleLogout() {
+    await Auth.signOut();
+  
+    userHasAuthenticated(false);
+  
+    history.push("/login");
+  }
   return (
     <ApolloProvider client={client}>
-      <Router>
-            <Route exact path="/">
-              <Login />
-            </Route>
-      </Router>
+      <BrowserRouter>
+      <Container maxWidth="xl">
+        <Navbar />
+        <div className="auth-wrapper">
+        <div className="auth-inner">
+          <Switch>
+            <Route path='/' component={Login} />
+            <Route path="/signin" component={Login} />
+            <Route path="/signup" component={Signup} />
+          </Switch>
+        </div>
+      </div>
+      </Container>
+      </BrowserRouter>
     </ApolloProvider>
   );
 }
