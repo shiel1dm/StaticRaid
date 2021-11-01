@@ -6,15 +6,14 @@ const useStyles = makeStyles((theme) => ({
         display: 'flex',
         justifyContent: 'center',
         textAlign: 'center',
-        alighnItems: 'center',
+        alignItems: 'center',
         height: '100vh',
     },
-    container: {
-        textAlign: 'center',
-    },
     heading: {
+        backgroundColor: "black",
         color: "#999D9A",
-        fontSize: '3em'
+        fontSize: '3em',
+        padding: "5px",
     }
 }));
 

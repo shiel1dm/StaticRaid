@@ -50,13 +50,13 @@ function App() {
       <Container maxWidth="xl">
         <Navbar />
         <Header />
-        <Home />
         <About />
         <Switch>
           <Signin />
           <Route path="/" exact component={Home} />
           <Route path="/auth" exact component={() => (!user ? <Signin /> : <Redirect to="/" />)} />
         </Switch>
+        <Home />
       </Container>
       </BrowserRouter>
     </ApolloProvider>

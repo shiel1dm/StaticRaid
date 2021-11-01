@@ -13,9 +13,6 @@ const useStyles = makeStyles((theme) => ({
   root: {
     backgroundColor: "black",
   },
-  navigation: {
-    color: "black:"
-  },
   navlinks: {
     marginLeft: theme.spacing(5),
     display: "flex",
