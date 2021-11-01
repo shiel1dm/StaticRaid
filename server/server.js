@@ -4,6 +4,7 @@ const path = require('path');
 
 const { typeDefs, resolvers } = require('./schemas');
 const { authMiddleware } = require('./utils/auth');
+import userRouter from './routes/user';
 
 const db = require('./config/connection');
 
@@ -20,6 +21,8 @@ server.applyMiddleware({ app });
 
 app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
+
+app.use("/user", userRouter);
 
 if (process.env.NODE_ENV === 'production') {
   app.use(express.static(path.join(__dirname, '../client/build')));

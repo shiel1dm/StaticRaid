@@ -8,12 +8,14 @@ import {
   createHttpLink,
 } from '@apollo/client';
 import { setContext } from '@apollo/client/link/context';
-import { BrowserRouter as Router, Route, Redirect, Switch } from 'react-router-dom';
-
-import Login from './pages/Signup';
+import { BrowserRouter, Router, Route, Redirect, Switch } from 'react-router-dom';
+import { Container } from '@material-ui/core';
+import Signin from './pages/components/Auth/Signin';
+import Signup from './pages/components/Auth/Signup';
 import Navbar from './pages/components/Navbar/Navbar';
-import Auth from './pages/components/Auth/Auth';
-import Home from './pages/Home';
+import Home from './pages/components/Homepage/Home';
+import Header from './pages/components/Homepage/Header';
+import About from './pages/components/Homepage/About';
 
 
 // Construct our main GraphQL API endpoint
@@ -41,21 +43,22 @@ const client = new ApolloClient({
 });
 
 function App() {
+  const user = JSON.parse(localStorage.getItem('profile'));
   return (
     <ApolloProvider client={client}>
-      <Router>
-        <div>
-      <Navbar />
-      </div>
-   <div>
-          <Auth />
-          </div>
-        <Route path="auth" exact component={() => (!user ? <Auth /> : <Redirect to="/" />)} />
-            <Route exact path="/">
-              <Login />
-            </Route>
- 
-      </Router>
+      <BrowserRouter>
+      <Container maxWidth="xl">
+        <Navbar />
+        <Header />
+        <Home />
+        <About />
+        <Switch>
+          <Signin />
+          <Route path="/" exact component={Home} />
+          <Route path="/auth" exact component={() => (!user ? <Signin /> : <Redirect to="/" />)} />
+        </Switch>
+      </Container>
+      </BrowserRouter>
     </ApolloProvider>
   );
 }
