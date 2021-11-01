@@ -14,7 +14,7 @@ export default function About() {
     return (
         <div className={classes.root}>
 
-            <ScheduleCard />
+
         </div>
     )
 }
