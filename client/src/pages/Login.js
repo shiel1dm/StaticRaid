@@ -18,92 +18,131 @@ import Signup from './Signup';
 
 const Login = () => {
   const theme = createTheme();
+  const [formState, setFormState] = useState({ username: '', password: '' });
+  const [login, { error, data }] = useMutation(LOGIN_USER);
 
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
-  const [username, setUsername] = useState("");
+  // update state based on form input changes
+  const handleChange = (event) => {
+    const { name, value } = event.target;
 
-  function validateForm() {
-    return email.length > 0 && password.length > 0;
-  }
+    setFormState({
+      ...formState,
+      [name]: value,
+    });
+  };
 
-  function handleSubmit(event) {
+  // submit form
+  const handleSubmit = async (event) => {
     event.preventDefault();
-  }
+    console.log(formState);
+    try {
+      const { data } = await login({
+        variables: { ...formState },
+      });
+
+      Auth.login(data.login.token);
+    } catch (e) {
+      console.error(e);
+    }
+
+    // clear form values
+    setFormState({
+      username: '',
+      password: '',
+    });
+  };
+
 
 
   return (
     <ThemeProvider theme={theme}>
       <Container component="main" maxWidth="xs">
-      <CssBaseline />
-        <Box
-          sx={{
-            marginTop: 8,
-            display: 'flex',
-            flexDirection: 'column',
-            alignItems: 'center',
-          }}
-        >
-          <Avatar sx={{ m: 1, bgcolor: 'secondary.main' }}>
-          </Avatar>
-          <Typography component="h1" variant="h5">
-           Login
-          </Typography>
-          <Box component="form"sx={{ mt: 3 }}>
-            <Grid container spacing={2}>
-                <Grid item xs={12}>
-                        <FormControl required fullWidth margin="normal">
-                        <TextField
-                        required
-                        fullWidth
-                        id="username"
-                        label="Username"
-                        name="username"
-                        >
-                        <Input
-                      value={username}
-                      onChange={(e) => setUsername(e.target.value)}
-                    />
-                      </TextField>
-                        </FormControl>
-                        </Grid>
-                      
-                    <Grid item xs={12}>
-                      <TextField
-                        required
-                        fullWidth
-                        name="password"
-                        label="Password"
-                        type="password"
-                        id="password"
-                        >
-                        <Input
-                    value={password}
-                    onChange={(e) => setPassword(e.target.value)}
-                    />
-                </TextField>
-              </Grid>
-            </Grid>
-            <Button
-              type="submit"
-              fullWidth
-              variant="contained"
-              sx={{ mt: 3, mb: 2 }}
+          <CssBaseline />
+            <Box
+              sx={{
+                marginTop: 8,
+                display: 'flex',
+                flexDirection: 'column',
+                alignItems: 'center',
+              }}
             >
+              <Avatar sx={{ m: 1, bgcolor: 'secondary.main' }}>
+              </Avatar>
+              <Typography component="h1" variant="h5">
               Login
-            </Button>
-            <Grid container justifyContent="flex-end">
-              <Grid item>
-                <Link to={"/signup"} variant="body2">{Signup}
-                  New user? Sign Up here.
-                </Link>
-              </Grid>
-            </Grid>
-              </Box>
-              </Box>
-              </Container>
-              </ThemeProvider>
-            );
+              </Typography>
+              <Container>
+                {data ? (
+                  <p>
+                    Success! You may now head{' '}
+                    <Link to="/">back to the homepage.</Link>
+                  </p>
+                  ) : (
+                    <Box component="form" onSubmit={handleSubmit} sx={{ mt: 3 }}>
+                    <Grid container spacing={2}>
+                    <FormControl required fullWidth margin="normal">
+                        <Grid item xs={12}>
+                             <TextField
+                                required
+                                fullWidth
+                                id="username"
+                                label="Username"
+                                name="username"
+                              >
+                                <Input
+                                  value={formState.username}
+                                  onChange={handleChange}
+                                />
+                            </TextField>
+                            </Grid>
+                          </FormControl>
+                        
+                      <FormControl required fullWidth margin="normal">
+                        <Grid item xs={12}>
+                          <TextField
+                              required
+                              fullWidth
+                              name="password"
+                              label="Password"
+                              type="password"
+                              id="password"
+                          >
+                              <Input
+                                value={formState.password}
+                                onChange={handleChange}
+                              />
+                          </TextField>
+                        </Grid>
+                      </FormControl>
+                        
+                        <Button
+                          type="submit"
+                          fullWidth
+                          variant="contained"
+                          sx={{ mt: 3, mb: 2 }}
+                        >
+                          Login
+                        </Button>
+                        {error && (
+              <div className="my-3 p-3 bg-danger text-white">
+                {error.message}
+                  </div>
+                        )}
+                      <Grid container justifyContent="flex-end">
+                        <Grid item>
+                          <Link to="/signup" variant="body2">
+                            New user? Sign up here.
+                          </Link>
+                        </Grid>
+                      </Grid> 
+                  </Grid>
+                </Box> 
+              )} 
+              </Container>     
+          </Box>
+          </Container>       
+      </ThemeProvider>
+    );
 }
 
 export default Login;

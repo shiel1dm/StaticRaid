@@ -23,6 +23,8 @@ const Signup = () => {
   const theme = createTheme();
 
   const [formState, setFormState] = useState({
+    firstName: '',
+    lastName: '',
     username: '',
     email: '',
     password: '',
@@ -38,7 +40,7 @@ const Signup = () => {
     });
   };
 
-  const handleFormSubmit = async (event) => {
+  const handleSubmit = async (event) => {
     event.preventDefault();
     console.log(formState);
 
@@ -102,104 +104,123 @@ const Signup = () => {
           <Typography component="h1" variant="h5">
             Sign up
           </Typography>
-          <Box component="form"sx={{ mt: 3 }} onSubmit={handleSubmit}>
-            <Grid container spacing={2}>
-              <Grid item xs={12} sm={6}>
-                <TextField
-                  autoComplete="given-name"
-                  name="firstName"
-                  required
-                  fullWidth
-                  id="firstName"
-                  label="First Name"
-                  >
-                  <Input
-                disableUnderline={true}
-                onChange={this.handleChange("firstName")}
-              />
-                </TextField>
-              </Grid>
-              <Grid item xs={12} sm={6}>
-                <FormControl required fullWidth margin="normal">
-                <TextField
-                  required
-                  id="lastName"
-                  label="Last Name"
-                  name="lastName">
-                  <Input
-                  name="firstName"
-                  type="firstName"
-                  value={firstName}
-                  onChange={(e) => setFirstName(e.target.value)}
-              />
-                </TextField>
-                </FormControl>
-              </Grid>
-              <Grid item xs={12}>
-              <FormControl required fullWidth margin="normal">
-              <TextField htmlFor="email" 
-                required
-                label="E-mail">
-                <Input
-                name="email"
-                type="email"
-                autoComplete="email"
-                disableUnderline={true}
-                onChange={this.handleChange("email")}
-              />
-              </TextField>
-              
-            </FormControl>
-            </Grid>
-              <Grid item xs={12}>
-                <TextField
-                  required
-                  fullWidth
-                  id="username"
-                  label="Username"
-                  name="username"
-                  >
-                  <Input
-                disableUnderline={true}
-                onChange={this.handleChange("username")}
-              />
-                </TextField>
-              </Grid>
-              <Grid item xs={12}>
-                <TextField
-                  required
-                  fullWidth
-                  name="password"
-                  label="Password"
-                  type="password"
-                  id="password"
-                  >
-                  <Input
-                disableUnderline={true}
-                onChange={this.handleChange("password")}
-              />
-                </TextField>
-              </Grid>
-            </Grid>
-            <Button
-              type="submit"
-              fullWidth
-              variant="contained"
-              sx={{ mt: 3, mb: 2 }}
-            >
-              Sign Up
-            </Button>
-            <Grid container justifyContent="flex-end">
-              <Grid item>
-                <Link to={<Login />} variant="body2">Login
-                  Already have an account? Log in
-                </Link>
-              </Grid>
-            </Grid>
-          </Box>
-        </Box>
-      </Container>
-    </ThemeProvider>
+          <Container>
+                {data ? (
+                  <p>
+                    Success! You may now head{' '}
+                    <Link to="/">back to the homepage.</Link>
+                  </p>
+                  ) : (
+                    <Box component="form"sx={{ mt: 3 }} onSubmit={handleSubmit}>
+                      <Grid container spacing={2}>
+                        <Grid item xs={12} sm={6}>
+                          <TextField
+                            autoComplete="given-name"
+                            name="firstName"
+                            required
+                            fullWidth
+                            id="firstName"
+                            label="First Name"
+                            >
+                            <Input
+                          disableUnderline={true}
+                          value={formState.firstName}
+                          onChange={handleChange}
+                        />
+                          </TextField>
+                        </Grid>
+                        <Grid item xs={12} sm={6}>
+                          <FormControl required fullWidth margin="normal">
+                          <TextField
+                            required
+                            id="lastName"
+                            label="Last Name"
+                            name="lastName">
+                            <Input
+                            name="firstName"
+                            type="firstName"
+                            value={formState.lastName}
+                            onChange={handleChange}
+                        />
+                          </TextField>
+                          </FormControl>
+                        </Grid>
+                        <Grid item xs={12}>
+                        <FormControl required fullWidth margin="normal">
+                        <TextField htmlFor="email" 
+                          required
+                          label="E-mail">
+                          <Input
+                          name="email"
+                          type="email"
+                          autoComplete="email"
+                          disableUnderline={true}
+                          value={formState.email}
+                          onChange={(e) => setEmail(e.target.value)}
+                        />
+                        </TextField>
+                        
+                      </FormControl>
+                      </Grid>
+                        <Grid item xs={12}>
+                          <TextField
+                            required
+                            fullWidth
+                            id="username"
+                            label="Username"
+                            name="username"
+                            >
+                            <Input
+                          disableUnderline={true}
+                          value={formState.username}
+                          onChange={handleChange}
+                        />
+                          </TextField>
+                        </Grid>
+                        <Grid item xs={12}>
+                          <TextField
+                            required
+                            fullWidth
+                            name="password"
+                            label="Password"
+                            type="password"
+                            id="password"
+                            >
+                            <Input
+                          disableUnderline={true}
+                          value={formstate.password}
+                          onChange={handleChange}
+                        />
+                          </TextField>
+                        </Grid>
+                      </Grid>
+                      <Button
+                        type="submit"
+                        fullWidth
+                        variant="contained"
+                        sx={{ mt: 3, mb: 2 }}
+                      >
+                        Sign Up
+                      </Button>
+
+                  {error && (
+              <div className="my-3 p-3 bg-danger text-white">
+                {error.message}
+                  </div>
+                        )}
+                      <Grid container justifyContent="flex-end">
+                        <Grid item>
+                          <Link to="/login" variant="body2">
+                            Already have an account? Log in
+                          </Link>
+                        </Grid>
+                      </Grid>
+                    </Box>
+            )}
+            </Container>
+                  </Box>
+                </Container>
+              </ThemeProvider>
   );
 }
 

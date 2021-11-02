@@ -62,8 +62,9 @@ function App() {
         <div className="auth-inner">
           <Switch>
             <Route path='/' component={Login} />
-            <Route path="/login" component={Login} />
-            <Route path="/signup" component={Signup} />
+            <Route path ='/' component={Signup} />
+            <Route path='/login' component={Login} />
+            <Route path='/signup' component={Signup} />
           </Switch>
         </div>
       </div>
