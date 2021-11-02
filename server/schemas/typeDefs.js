@@ -7,6 +7,13 @@ const typeDefs = gql
     username: String
     email: String
     password: String
+    teams: [Team]!
+  }
+
+  type Team {
+    _id: ID
+    teamname: String
+    grouptype: String
   }
 
   type Auth {
@@ -18,11 +25,14 @@ const typeDefs = gql
     users: [User]
     user(username: String!): User
     me: User
+    team(username: String): [Team]
   }
 
   type Mutation {
     addUser(username: String!, email: String!, password: String!): Auth
-    login(email: String!, password: String!): Auth
+    login(username: String!, password: String!): Auth
+    addTeam(teamname: String!): Team
+    removeTeam(teamname: String!): Team
   }
 `;
 
