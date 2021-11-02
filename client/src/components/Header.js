@@ -22,7 +22,7 @@ export default function Header() {
     return (
         <div className='container' >
             <h1 className={classes.heading}>
-                Welcome to <br /> 
+                Welcome to 
                 <span className={classes.colorText}>StaticRaid.</span>
             </h1>
         </div>
