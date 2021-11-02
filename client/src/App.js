@@ -10,9 +10,9 @@ import {
 import { setContext } from '@apollo/client/link/context';
 import { BrowserRouter, Router, Route, Redirect, Switch } from 'react-router-dom';
 import { Container } from '@material-ui/core';
-import Login from './pages/Auth/Login';
-import Signup from './pages/Auth/Signup';
-import Navbar from './pages/components/Navbar/Navbar';
+import Login from './pages/Login';
+import Signup from './pages/Signup';
+import Navbar from './components/Navbar/Navbar';
 import Home from './pages/Home';
 import { useHistory } from "react-router-dom";
 
@@ -62,7 +62,7 @@ function App() {
         <div className="auth-inner">
           <Switch>
             <Route path='/' component={Login} />
-            <Route path="/signin" component={Login} />
+            <Route path="/login" component={Login} />
             <Route path="/signup" component={Signup} />
           </Switch>
         </div>

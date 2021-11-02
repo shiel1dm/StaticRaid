@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { LOGIN_USER } from '../../utils/mutations';
+import { LOGIN_USER } from '../utils/mutations'
 import { useMutation } from '@apollo/client';
 import { Link, useHistory } from 'react-router-dom';
 import Avatar from '@mui/material/Avatar';
@@ -14,9 +14,11 @@ import { createTheme, ThemeProvider } from '@mui/material/styles';
 import Signup from './Signup';
 
 
-const theme = createTheme();
 
-export default function Login() {
+
+const Login = () => {
+  const theme = createTheme();
+
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [username, setUsername] = useState("");
@@ -92,7 +94,7 @@ export default function Login() {
             </Button>
             <Grid container justifyContent="flex-end">
               <Grid item>
-                <Link to={"/Signup"} variant="body2">{Signup}
+                <Link to={"/signup"} variant="body2">{Signup}
                   New user? Sign Up here.
                 </Link>
               </Grid>
@@ -102,7 +104,9 @@ export default function Login() {
               </Container>
               </ThemeProvider>
             );
-            }
+}
+
+export default Login;
           
 
         
