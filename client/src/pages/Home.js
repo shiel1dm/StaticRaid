@@ -19,11 +19,14 @@ const useStyles = makeStyles((theme) => ({
 
 
 export default function Home() {
-    const classes = useStyles();
-    return <div className={classes.root}>
+const classes = useStyles();
+    
+return (
+    <div className={classes.root}>
         <CssBaseline />
         <Header />
         <About />
         <ScheduleCard />
     </div>
+    )
 };
