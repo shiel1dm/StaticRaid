@@ -61,10 +61,15 @@ function App() {
         <div className="auth-wrapper">
         <div className="auth-inner">
           <Switch>
-            <Route path="/" component={Login} />
-            <Route path ="/" component={Signup} />
-            <Route path="/login" component={Login} />
-            <Route path="/signup" component={Signup} />
+            <Route exact path="/" >
+              <Login />
+            </Route>
+            <Route exact path="/login">
+              <Login />
+            </Route>
+            <Route exact path="/signup">
+              <Signup />
+            </Route>
           </Switch>
         </div>
       </div>

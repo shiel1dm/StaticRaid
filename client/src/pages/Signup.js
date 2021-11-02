@@ -188,7 +188,7 @@ const Signup = () => {
                             >
                             <Input
                           disableUnderline={true}
-                          value={formstate.password}
+                          value={formState.password}
                           onChange={handleChange}
                         />
                           </TextField>
