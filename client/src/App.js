@@ -11,6 +11,9 @@ import { setContext } from '@apollo/client/link/context';
 import { BrowserRouter as Router, Route } from 'react-router-dom';
 
 import Login from './pages/Signup';
+import Navbar from './pages/components/Navbar/Navbar';
+import Home from './pages/Home';
+
 
 
 // Construct our main GraphQL API endpoint
@@ -41,11 +44,15 @@ function App() {
   return (
     <ApolloProvider client={client}>
       <Router>
-            <Route exact path="/">
-              <Login />
-            </Route>
+        <Navbar />
+        <Route exact path="/" component={Home}/>
+              
+            <Route exact path="/login" component={Login} />
+              
+            
       </Router>
     </ApolloProvider>
+    
   );
 }
 
