@@ -11,7 +11,3 @@ ReactDOM.render(
 );
 
 reportWebVitals();
-<<<<<<< HEAD
-
-=======
->>>>>>> main
