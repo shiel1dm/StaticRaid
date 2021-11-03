@@ -4,6 +4,9 @@ const { Schema } = mongoose;
 
 const scheduleSchema = new Schema({
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> main
     gameTime: {
         type: String,
         required: 'Please pick a time!',
@@ -12,6 +15,7 @@ const scheduleSchema = new Schema({
 });
 
 
+<<<<<<< HEAD
 module.exports = scheduleSchema;
 =======
 
@@ -21,3 +25,6 @@ const Schedule = mongoose.model('Schedule', scheduleSchema);
 
 module.exports = Schedule;
 >>>>>>> login/navbar_component
+=======
+module.exports = scheduleSchema;
+>>>>>>> main

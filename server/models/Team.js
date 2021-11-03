@@ -4,6 +4,7 @@ const { Schema } = mongoose;
 
 const teamSchema = new Schema({
 <<<<<<< HEAD
+<<<<<<< HEAD
     teamName: {
         type: String,
         require: true,
@@ -15,6 +16,8 @@ const teamSchema = new Schema({
     }
 
 =======
+=======
+>>>>>>> main
     teamname: {
         type: String,
         required: true,
@@ -26,7 +29,10 @@ const teamSchema = new Schema({
         required: true,
         trim: true
     }    
+<<<<<<< HEAD
 >>>>>>> login/navbar_component
+=======
+>>>>>>> main
 })
 
 const Team = mongoose.model('Team', teamSchema);
