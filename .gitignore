@@ -4,7 +4,12 @@
 /node_modules
 /.pnp
 .pnp.js
+node_modules/*
+<<<<<<< HEAD
 
+=======
+my-app/node_modules
+>>>>>>> main
 # testing
 /coverage
 
