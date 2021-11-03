@@ -33,7 +33,7 @@ const Signup = () => {
 
   const handleChange = (event) => {
     const { name, value } = event.target;
-
+    console.log('changes')
     setFormState({
       ...formState,
       [name]: value,
@@ -53,39 +53,7 @@ const Signup = () => {
     } catch (e) {
       console.error(e);
     }
-  };
- 
-
- /*passwordMatch = () => this.state.password === this.state.passwordConfrim;
-
-  showPassword = () => {
-    this.setState(prevState => ({ hidePassword: !prevState.hidePassword }));
-  };
-
-  isValid = () => {
-    if (this.state.email === "") {
-      return false;
-    }
-    return true;
-  };
-  handleSubmit = e => {
-    e.preventDefault();
-    if (!this.passwordMatch()) {
-      this.setState({
-        errorOpen: true,
-        error: "Passwords don't match"
-      });
-    }
-    const newUserCredentials = {
-      email: this.state.email,
-      password: this.state.password,
-      passwordConfrim: this.state.passwordConfrim
-    };
-    console.log("this.props.newUserCredentials", newUserCredentials);
-    //dispath to userActions
-  };*/
-
-  
+  };  
 
   return (
     <ThemeProvider theme={theme}>
@@ -121,45 +89,35 @@ const Signup = () => {
                             fullWidth
                             id="firstName"
                             label="First Name"
-                            >
-                            <Input
-                          disableUnderline={true}
-                          value={formState.firstName}
-                          onChange={handleChange}
-                        />
-                          </TextField>
+                            value={formState.firstName}
+                            onChange={handleChange}
+                            />
+                            
                         </Grid>
                         <Grid item xs={12} sm={6}>
                           <FormControl required fullWidth margin="normal">
-                          <TextField
+                          <TextField 
                             required
                             id="lastName"
                             label="Last Name"
-                            name="lastName">
-                            <Input
-                            name="firstName"
-                            type="firstName"
+                            name="lastName"
                             value={formState.lastName}
                             onChange={handleChange}
-                        />
-                          </TextField>
+                            />
+                         
                           </FormControl>
                         </Grid>
                         <Grid item xs={12}>
                         <FormControl required fullWidth margin="normal">
                         <TextField htmlFor="email" 
                           required
-                          label="E-mail">
-                          <Input
+                          label="E-mail"
                           name="email"
                           type="email"
                           autoComplete="email"
-                          disableUnderline={true}
                           value={formState.email}
-                          onChange={(e) => setEmail(e.target.value)}
-                        />
-                        </TextField>
-                        
+                          onChange={handleChange}
+                        />            
                       </FormControl>
                       </Grid>
                         <Grid item xs={12}>
@@ -169,13 +127,11 @@ const Signup = () => {
                             id="username"
                             label="Username"
                             name="username"
-                            >
-                            <Input
-                          disableUnderline={true}
+                          
+                          
                           value={formState.username}
                           onChange={handleChange}
                         />
-                          </TextField>
                         </Grid>
                         <Grid item xs={12}>
                           <TextField
@@ -185,13 +141,11 @@ const Signup = () => {
                             label="Password"
                             type="password"
                             id="password"
-                            >
-                            <Input
-                          disableUnderline={true}
+
                           value={formState.password}
                           onChange={handleChange}
                         />
-                          </TextField>
+                          
                         </Grid>
                       </Grid>
                       <Button

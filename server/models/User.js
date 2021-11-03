@@ -7,6 +7,7 @@ const bcrypt = require('bcrypt');
 
 const userSchema = new Schema({
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
   firstName: {
     type: String,
@@ -18,6 +19,8 @@ const userSchema = new Schema({
     required: true,
     trim: true
   },
+>>>>>>> main
+=======
 >>>>>>> main
   username: {
     type: String,
@@ -37,12 +40,6 @@ const userSchema = new Schema({
     required: true,
     minlength: 5,
   },
-  thoughts: [
-    {
-      type: Schema.Types.ObjectId,
-      ref: 'Thought',
-    },
-  ],
 });
 
 userSchema.pre('save', async function (next) {
