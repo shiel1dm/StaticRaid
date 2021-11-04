@@ -13,7 +13,7 @@ import { Container } from "@material-ui/core";
 import Login from "./pages/Login";
 import Signup from "./pages/Signup";
 import Navbar from "./components/Navbar/Navbar";
-import Home from "./pages/Home";
+import About from "./pages/About";
 import { useHistory } from "react-router-dom";
 
 
@@ -41,6 +41,7 @@ const client = new ApolloClient({
   link: authLink.concat(httpLink),
   cache: new InMemoryCache(),
 });
+
 
 function App() {
   const history = useHistory();
@@ -71,6 +72,7 @@ function App() {
               <Signup />
             </Route>
           </Switch>
+          <About />
         </div>
       </div>
       </Container>

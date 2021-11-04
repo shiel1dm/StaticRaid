@@ -38,7 +38,7 @@ function Navbar() {
 
   return (
     <Container className={classes.navigation}>
-    <AppBar position="static">
+    <AppBar position="static" style={{background: "#313237" }}>
       <CssBaseline />
       <Toolbar>
         <Typography variant="h4" className={classes.logo}>
