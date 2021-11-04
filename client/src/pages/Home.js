@@ -3,9 +3,9 @@ import { createTheme, ThemeProvider } from '@mui/material/styles';
 import { makeStyles } from '@material-ui/core/styles';
 import { CssBaseline } from '@material-ui/core';
 import Header from '../components/Header'
-import About from './About';
-import { Typography, Box } from '@mui/material';
-import Typed from 'react-typed'
+import About from '../components/About';
+import ScheduleCard from '../components/ScheduleCard';
+import Teams from '../components/Teams';
 
 
 const useStyles = makeStyles((theme) => ({
@@ -37,6 +37,10 @@ return (
             </Typography>
     </Box>
         <CssBaseline />
+        <Header />
+        <About />
+        <ScheduleCard />
+        <Teams />
     </div>
     )
 };

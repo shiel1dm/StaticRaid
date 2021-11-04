@@ -54,6 +54,9 @@ function Navbar() {
             <Link to="/schedule" className={classes.link}>
               Scheduler
             </Link>
+            <Link to="/teams" className={classes.link}>
+              Teams
+            </Link>
           </div>
       </Toolbar>
     </AppBar>
