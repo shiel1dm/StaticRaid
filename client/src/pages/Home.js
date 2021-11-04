@@ -5,6 +5,7 @@ import { CssBaseline } from '@material-ui/core';
 import Header from '../components/Header'
 import About from '../components/About';
 import ScheduleCard from '../components/ScheduleCard';
+import Teams from '../components/Teams';
 
 
 const useStyles = makeStyles((theme) => ({
@@ -27,6 +28,7 @@ return (
         <Header />
         <About />
         <ScheduleCard />
+        <Teams />
     </div>
     )
 };
