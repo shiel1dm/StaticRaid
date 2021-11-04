@@ -1,7 +1,8 @@
 {
-  "name": "client",
+  "name": "static-raid-client",
   "version": "0.1.0",
   "private": true,
+  "proxy": "http://localhost:3001",
   "dependencies": {
     "@apollo/client": "^3.3.5",
     "@emotion/react": "^11.5.0",
@@ -24,7 +25,9 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "lint": "eslint . --ext .js,.jsx --quiet",
+    "lint --fix": "eslint . --ext .js,.jsx --fix"
   },
   "eslintConfig": {
     "extends": [

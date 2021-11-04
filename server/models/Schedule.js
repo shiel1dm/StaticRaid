@@ -8,7 +8,16 @@ const scheduleSchema = new Schema({
         required: 'Please pick a time!',
         trim: true,
     },
+    users: {
+        type: Schema.Types.ObjectId,
+        ref: 'User'
+    },
+    teams: {
+        type: Schema.Types.ObjectId,
+        ref: 'Team'
+    }
 });
 
+const Schedule = mongoose.model('Schedule', scheduleSchema);
 
-module.exports = scheduleSchema;
+module.exports = Schedule;

@@ -111,6 +111,7 @@ try {
                     <Box component="form"sx={{ mt: 3 }} onSubmit={handleSubmit}>
                       <Grid container spacing={2}>
                         <Grid item xs={12} sm={6}>
+                          <FormControl required fullWidth margin="normal">
                           <TextField
                             autoComplete="given-name"
                             name="firstName"
@@ -125,6 +126,7 @@ try {
                           onChange={handleChange}
                         />
                           </TextField>
+                          </FormControl>
                         </Grid>
                         <Grid item xs={12} sm={6}>
                           <FormControl required fullWidth margin="normal">
@@ -134,8 +136,8 @@ try {
                             label="Last Name"
                             name="lastName">
                             <Input
-                            name="firstName"
-                            type="firstName"
+                            name="lastName"
+                            type="lastName"
                             value={formState.lastName}
                             onChange={handleChange}
                         />
@@ -185,7 +187,7 @@ try {
                             >
                             <Input
                           disableUnderline={true}
-                          value={formstate.password}
+                          value={formState.password}
                           onChange={handleChange}
                         />
                           </TextField>

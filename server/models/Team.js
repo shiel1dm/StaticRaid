@@ -17,8 +17,11 @@ const teamSchema = new Schema({
     teamSize: {
         type: Number,
         require: true
+    },
+    users: {
+        type: Schema.Types.ObjectId,
+        ref: 'User'
     }
-
 })
 
 const Team = mongoose.model('Team', teamSchema);

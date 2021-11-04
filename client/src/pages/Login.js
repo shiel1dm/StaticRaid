@@ -88,11 +88,9 @@ const Login = () => {
                                 id="username"
                                 label="Username"
                                 name="username"
-                              >
-                                <Input
-                                  value={formState.username}
-                                  onChange={handleChange}
-                                />
+                                value={formState.username}
+                                onChange={handleChange}
+                              > 
                             </TextField>
                             </Grid>
                           </FormControl>
@@ -106,11 +104,9 @@ const Login = () => {
                               label="Password"
                               type="password"
                               id="password"
-                          >
-                              <Input
-                                value={formState.password}
-                                onChange={handleChange}
-                              />
+                              value={formState.password}
+                              onChange={handleChange}
+                          >   
                           </TextField>
                         </Grid>
                       </FormControl>
@@ -126,11 +122,11 @@ const Login = () => {
                         {error && (
               <div className="my-3 p-3 bg-danger text-white">
                 {error.message}
-                  </div>
-                        )}
+              </div>
+                    )}
                       <Grid container justifyContent="flex-end">
                         <Grid item>
-                          <Link to="/signup" variant="body2">
+                          <Link to="/Signup" variant="body2">
                             New user? Sign up here.
                           </Link>
                         </Grid>
