@@ -18,6 +18,7 @@ const resolvers = {
       }
       throw new AuthenticationError('You must be logged in!')
     }
+    
   },
 
 
@@ -45,12 +46,12 @@ Mutation: {
     return { token, user };
   },
 
-  addTeam: async (parent, { userId, team }, context) => {
+  addTeam: async (parent, { userId, teamname }, context) => {
     if (context.user) {
       return User.findOneAndUpdate(
         { _id: userId },
         {
-          $addToSet: { teams: team },
+          $addToSet: { teamname: teamname },
         },
         {
           new: true,
@@ -71,6 +72,8 @@ Mutation: {
     }
     throw new AuthenticationError('You must be logged in!');
   },
+
+
 },
 };
 

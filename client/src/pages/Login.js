@@ -6,12 +6,12 @@ import Avatar from '@mui/material/Avatar';
 import CssBaseline from '@mui/material/CssBaseline';
 import TextField from '@mui/material/TextField';
 import Grid from '@mui/material/Grid';
-import { FormControl, FormControlLabel, FormGroup, Label, Checkbox, Input, InputLabel, Button } from "@material-ui/core";
+import { FormControl, Button } from "@material-ui/core";
 import Box from '@mui/material/Box';
 import Typography from '@mui/material/Typography';
 import Container from '@mui/material/Container';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
-import Signup from './Signup';
+import Auth from '../utils/auth';
 
 
 
@@ -88,12 +88,10 @@ const Login = () => {
                                 id="username"
                                 label="Username"
                                 name="username"
-                              >
-                                <Input
                                   value={formState.username}
                                   onChange={handleChange}
                                 />
-                            </TextField>
+                        
                             </Grid>
                           </FormControl>
                         
@@ -106,12 +104,10 @@ const Login = () => {
                               label="Password"
                               type="password"
                               id="password"
-                          >
-                              <Input
                                 value={formState.password}
                                 onChange={handleChange}
                               />
-                          </TextField>
+                          
                         </Grid>
                       </FormControl>
                         

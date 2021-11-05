@@ -23,3 +23,13 @@ export const ADD_USER = gql`
     }
   }
 `;
+
+export const ADD_TEAM = gql`
+  mutation addTeam($teamname: String!) {
+    addTeam(teamname: $teamname) {
+        _id
+        teamname
+        gamename
+      }
+    
+  }`

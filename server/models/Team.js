@@ -8,12 +8,21 @@ const teamSchema = new Schema({
         required: true,
         trim: true
     },
+    gamename: {
+        type: String,
+        required: true,
+        trim: true
+    },
     grouptype: {
         type: String,
         enum: ['game, raid, guild, party, server, social'],
-        required: true,
+       
         trim: true
-    }    
+    },
+    groupCreator: {
+        type: String,
+        User: this.user
+    },    
 })
 
 const Team = mongoose.model('Team', teamSchema);
