@@ -46,20 +46,13 @@ Mutation: {
     return { token, user };
   },
 
-  addTeam: async (parent, { userId, teamname }, context) => {
+  addTeam: async (parent, { userId, teamname, gamename }, context) => {
     if (context.user) {
-      return User.findOneAndUpdate(
-        { _id: userId },
-        {
-          $addToSet: { teamname: teamname },
-        },
-        {
-          new: true,
-          runValidators: true,
-        }
-      );
-    }
-    throw new AuthenticationError('You must be logged in!');
+      const team = await Team.create({ teamname, gamename, creator: userId });
+      return team;
+      } else {
+        throw new AuthenticationError('You must be logged in!');
+      }
   },
 
   removeTeam: async (parent, { team }, context) => {

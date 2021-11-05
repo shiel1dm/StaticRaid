@@ -64,7 +64,7 @@ function App() {
         <div className="auth-inner">
           <Switch>
             <Route exact path="/" >
-              <Login />
+              <Login /> 
             </Route>
             <Route exact path="/login">
               <Login />
