@@ -33,8 +33,8 @@ const userSchema = new Schema({
     required: true,
     minlength: 5,
   },
-  teams: [Team.schema],
-  schedule: [Schedule.schema]
+  teams: [Team],
+  schedule: [Schedule]
 });
 
 userSchema.pre('save', async function(next) {
