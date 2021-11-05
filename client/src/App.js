@@ -15,7 +15,13 @@ import Signup from "./pages/Signup";
 import Navbar from "./components/Navbar/Navbar";
 import About from "./pages/About";
 import { useHistory } from "react-router-dom";
+import { makeStyles } from "@material-ui/core/styles";
 
+const useStyles = makeStyles(theme => ({
+  root: {
+  backgroundColor: '#B5B3B4'
+  }
+}))
 
 
 // Construct our main GraphQL API endpoint
@@ -45,7 +51,7 @@ const client = new ApolloClient({
 
 function App() {
   const history = useHistory();
-
+const classes = useStyles();
 
   async function handleLogout() {
     await Auth.signOut();
@@ -55,6 +61,7 @@ function App() {
     history.push("/login");
   }
   return (
+    <container className={classes.root}>
     <ApolloProvider client={client}>
       <BrowserRouter>
       <Container maxWidth="xl">
@@ -78,6 +85,7 @@ function App() {
       </Container>
       </BrowserRouter>
     </ApolloProvider>
+    </container>
     
   );
 }
