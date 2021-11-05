@@ -37,6 +37,7 @@ const Team = () => {
       variables: { ...formState },
     })
     setNewTeam('');
+    alert('Your Team has been created!');
 
 
   } catch (e) {
