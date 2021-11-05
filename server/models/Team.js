@@ -12,8 +12,7 @@ const teamSchema = new Schema({
         type: Number,
         require: true
     }
-
-})
+});
 
 const Team = mongoose.model('Team', teamSchema);
 

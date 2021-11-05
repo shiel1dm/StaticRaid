@@ -43,7 +43,7 @@ function Form() {
 
     return (
         <div>
-            <p> Welcome ${userName}</p>
+            <p>Welcome {userName}</p>
             <form className="form">
                 <input value = {email} name="email"
                  onChange={handleInputChange}

@@ -114,6 +114,7 @@ const Signup = () => {
                     <Box component="form"sx={{ mt: 3 }} onSubmit={handleSubmit}>
                       <Grid container spacing={2}>
                         <Grid item xs={12} sm={6}>
+                          <FormControl required fullWidth margin="normal">
                           <TextField
                             autoComplete="given-name"
                             name="firstName"
@@ -121,13 +122,11 @@ const Signup = () => {
                             fullWidth
                             id="firstName"
                             label="First Name"
+                            value={formState.firstName}
+                            onChange={handleChange}
                             >
-                            <Input
-                          disableUnderline={true}
-                          value={formState.firstName}
-                          onChange={handleChange}
-                        />
                           </TextField>
+                          </FormControl>
                         </Grid>
                         <Grid item xs={12} sm={6}>
                           <FormControl required fullWidth margin="normal">
@@ -135,13 +134,10 @@ const Signup = () => {
                             required
                             id="lastName"
                             label="Last Name"
-                            name="lastName">
-                            <Input
-                            name="firstName"
-                            type="firstName"
+                            name="lastName"
                             value={formState.lastName}
                             onChange={handleChange}
-                        />
+                            >
                           </TextField>
                           </FormControl>
                         </Grid>
@@ -149,18 +145,14 @@ const Signup = () => {
                         <FormControl required fullWidth margin="normal">
                         <TextField htmlFor="email" 
                           required
-                          label="E-mail">
-                          <Input
-                          name="email"
-                          type="email"
+                          label="E-mail"
                           autoComplete="email"
-                          disableUnderline={true}
                           value={formState.email}
-                          onChange={(e) => setEmail(e.target.value)}
-                        />
+                          onChange={handleChange}
+                          >
                         </TextField>
                         
-                      </FormControl>
+                        </FormControl>
                       </Grid>
                         <Grid item xs={12}>
                           <TextField
@@ -169,12 +161,9 @@ const Signup = () => {
                             id="username"
                             label="Username"
                             name="username"
+                            value={formState.username}
+                            onChange={handleChange}
                             >
-                            <Input
-                          disableUnderline={true}
-                          value={formState.username}
-                          onChange={handleChange}
-                        />
                           </TextField>
                         </Grid>
                         <Grid item xs={12}>
@@ -185,12 +174,9 @@ const Signup = () => {
                             label="Password"
                             type="password"
                             id="password"
+                            value={formState.password}
+                            onChange={handleChange}
                             >
-                            <Input
-                          disableUnderline={true}
-                          value={formState.password}
-                          onChange={handleChange}
-                        />
                           </TextField>
                         </Grid>
                       </Grid>
@@ -217,10 +203,10 @@ const Signup = () => {
                       </Grid>
                     </Box>
             )}
-            </Container>
-                  </Box>
-                </Container>
-              </ThemeProvider>
+          </Container>
+        </Box>
+      </Container>
+    </ThemeProvider>
   );
 }
 
