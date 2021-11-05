@@ -6,7 +6,7 @@
   "scripts": {
     "start": "node server/server.js",
     "develop": "concurrently \"cd server && npm run watch\" \"cd client && npm start\"",
-    "install": "cd server && npm i && cd ../client && npm i",
+    "install": "cd server && npm install && cd ../client && npm install",
     "seed": "cd server && npm run seed",
     "build": "cd client && npm run build"
   },
@@ -25,6 +25,7 @@
     "@material-ui/icons": "^4.11.2",
     "@mui/material": "^5.0.6",
     "graphql": "^16.0.0"
+<<<<<<< HEAD
 
     "@apollo/client": "^3.4.16",
     "@material-ui/core": "^4.12.3",
@@ -35,5 +36,7 @@
     "graphql": "^16.0.0",
     "@apollo/client": "^3.4.16"
 >>>>>>> Stashed changes
+=======
+>>>>>>> 37f5648713e9fa1d3e539b464cf48ed399250ddb
   }
 }

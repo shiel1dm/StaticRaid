@@ -14,7 +14,9 @@ import Login from "./pages/Login";
 import Signup from "./pages/Signup";
 import Navbar from "./components/Navbar/Navbar";
 import Home from "./pages/Home";
+import Team from "./pages/Team";
 import { useHistory } from "react-router-dom";
+import Auth from './utils/auth';
 
 
 
@@ -46,29 +48,24 @@ function App() {
   const history = useHistory();
 
 
-  async function handleLogout() {
-    await Auth.signOut();
   
-    userHasAuthenticated(false);
-  
-    history.push("/login");
-  }
   return (
     <ApolloProvider client={client}>
       <BrowserRouter>
       <Container maxWidth="xl">
         <Navbar />
+        <Team />
         <div className="auth-wrapper">
         <div className="auth-inner">
           <Switch>
-            <Route exact path="/" >
-              <Login />
-            </Route>
-            <Route exact path="/login">
-              <Login />
+            <Route exact path="/login" >
+              <Login /> 
             </Route>
             <Route exact path="/signup">
               <Signup />
+            </Route>
+            <Route exact path="/">
+              <Home />
             </Route>
           </Switch>
         </div>

@@ -9,7 +9,11 @@
     "@emotion/styled": "^11.3.0",
     "@material-ui/core": "^4.12.3",
     "@material-ui/icons": "^4.11.2",
+<<<<<<< HEAD
     "@material-ui/pickers": "^3.3.10",
+=======
+    "@mui/icons-material": "^5.0.5",
+>>>>>>> 37f5648713e9fa1d3e539b464cf48ed399250ddb
     "@mui/material": "^5.0.6",
     "@testing-library/jest-dom": "^5.14.1",
     "@testing-library/react": "^11.2.7",
@@ -19,6 +23,7 @@
     "jwt-decode": "^3.1.2",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
+    "react-redux": "^7.2.6",
     "react-router-dom": "^5.2.0",
     "react-scripts": "4.0.3",
     "web-vitals": "^1.1.2"
