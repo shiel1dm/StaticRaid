@@ -1,15 +1,14 @@
-import React, { useState, Component } from 'react';
+import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
 import Avatar from '@mui/material/Avatar';
 import CssBaseline from '@mui/material/CssBaseline';
 import TextField from '@mui/material/TextField';
-import Link from '@mui/material/Link';
 import Grid from '@mui/material/Grid';
 import Box from '@mui/material/Box';
-import { FormControl, Input, InputLabel, Button } from "@material-ui/core";
+import { FormControl, Button } from "@material-ui/core";
 import Typography from '@mui/material/Typography';
 import Container from '@mui/material/Container';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
-import Login from './Login';
 
 import { useMutation } from '@apollo/client';
 import { ADD_USER } from '../utils/mutations.js';
@@ -82,6 +81,7 @@ const Signup = () => {
                     <Box component="form"sx={{ mt: 3 }} onSubmit={handleSubmit}>
                       <Grid container spacing={2}>
                         <Grid item xs={12} sm={6}>
+                        <FormControl required fullWidth margin="normal">
                           <TextField
                             autoComplete="given-name"
                             name="firstName"
@@ -92,6 +92,7 @@ const Signup = () => {
                             value={formState.firstName}
                             onChange={handleChange}
                             />
+                            </FormControl>
                             
                         </Grid>
                         <Grid item xs={12} sm={6}>
