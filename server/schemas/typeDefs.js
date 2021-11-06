@@ -7,7 +7,7 @@ const typeDefs = gql`
     lastName: String
     username: String
     email: String
-    teams: [Team]!
+    teams: [Team]
     joinedTeams: [Team]
     userSchedule: [Schedule]
   }
@@ -36,7 +36,7 @@ const typeDefs = gql`
   }
 
   type Query {
-    users: [User]!
+    users: [User]
     user(userId: ID!): User
     me: User
     teams: [Team]
@@ -47,8 +47,8 @@ const typeDefs = gql`
     addUser(firstName: String!, lastName: String!, username: String!, email: String!, password: String!): Auth
     login(username: String!, password: String!): Auth
     addTeam(teamName: String!, gamename: String!): Team
-    leaveTeam(teamName: String!): Team
-    joinTeam(teamName: String!): Team
+    leaveTeam(teamId: ID!): Team
+    joinTeam(teamId: ID!): Team
   }
 `;
 
