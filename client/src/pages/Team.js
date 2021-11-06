@@ -10,7 +10,6 @@ import Auth from '../utils/auth';
 import { QUERY_ME, QUERY_TEAMS } from '../utils/queries';
 
 
-
 const useStyles = makeStyles((theme) => ({
   root: {
       display: 'flex',
@@ -33,25 +32,6 @@ const TeamCreate = () => {
   });
   const [addTeam, { error, data }] = useMutation(ADD_TEAM);
 
-  /*const [addTeam, { error, data }] = useMutation(ADD_TEAM, {
-    update(cache, { data: { addTeam }}) {
-      try {
-      const { teams } = cache.readQuery({ query: QUERY_TEAMS });
-      cache.writeQuery({
-        query: QUERY_TEAMs,
-        data: { teams: [addTeam, ...teams ]},
-      });
-    } catch (e) {
-      console.error(e);
-    }
-    const { me } = cache.readQuery({ query: QUERY_ME });
-    cache.writeQuery({
-      query: QUERY_ME,
-      data: { me: { ...me, teams: [ ...me.teams, addTeam]}},
-    });
-    },
-  });*/
-
   const handleChange = (event) => {
     const { name, value } = event.target;
     setFormState({
@@ -65,19 +45,20 @@ const TeamCreate = () => {
     console.log(formState);
 
   try {
-    const { newTeam } = await addTeam({
+    const Team  = await addTeam({
       variables: { ...formState },
     })
-    console.table(`Your team ${teamname.value} for ${gamename.value} has been created! `)
+    window.alert(`Your team ${teamname.value} for ${gamename.value} has been created! `)
     console.log(JSON.stringify(data));
-    return JSON.stringify(data);
+    
   
 
     } catch (e) {
       console.error(e);
     }
 
-    };
+    }
+  
 
   return (
 
@@ -159,3 +140,22 @@ const TeamCreate = () => {
 } 
 
 export default TeamCreate;
+
+/*const [addTeam, { error, data }] = useMutation(ADD_TEAM, {
+    update(cache, { data: { addTeam }}) {
+      try {
+      const { teams } = cache.readQuery({ query: QUERY_TEAMS });
+      cache.writeQuery({
+        query: QUERY_TEAMs,
+        data: { teams: [addTeam, ...teams ]},
+      });
+    } catch (e) {
+      console.error(e);
+    }
+    const { me } = cache.readQuery({ query: QUERY_ME });
+    cache.writeQuery({
+      query: QUERY_ME,
+      data: { me: { ...me, teams: [ ...me.teams, addTeam]}},
+    });
+    },
+  });*/
