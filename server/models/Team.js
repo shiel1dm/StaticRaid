@@ -1,7 +1,6 @@
 const { Schema, SchemaTypes, model } = require('mongoose');
 
 const teamSchema = new Schema({
-
     teamname: {
         type: String,
         required: true,
@@ -18,21 +17,20 @@ const teamSchema = new Schema({
         trim: true
     },    
     teamSize: {
-        type: Number,
+        type: String,
         require: true
     },
     teamSchedule: [{
         type: SchemaTypes.ObjectId,
         ref: 'Schedule'
-      }],
-    users: [{
+    }],
+    groupCreator: {
         type: SchemaTypes.ObjectId,
         ref: 'User'
     },
-    groupCreator: {
-        type: String,
-        User: this.user
-    },    
+    users: [{
+        type: SchemaTypes.ObjectId,
+        ref: 'User'
     }]
 });
 

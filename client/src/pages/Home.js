@@ -41,7 +41,6 @@ return (
                     </h1>
                 </div>
     </Box>
-         
                 
          
                 <Team />

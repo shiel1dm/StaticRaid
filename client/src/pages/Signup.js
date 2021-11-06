@@ -21,8 +21,8 @@ const Signup = () => {
   const theme = createTheme();
 
   const [formState, setFormState] = useState({
-    firstName: '',
-    lastName: '',
+    firstname: '',
+    lastname: '',
     username: '',
     email: '', 
     password: '' });
@@ -81,12 +81,12 @@ try {
                           <FormControl required fullWidth margin="normal">
                           <TextField
                             autoComplete="given-name"
-                            name="firstName"
+                            name="firstname"
                             required
                             fullWidth
-                            id="firstName"
+                            id="firstname"
                             label="First Name"
-                            value={formState.firstName}
+                            value={formState.firstname}
                             onChange={handleChange}
                             />
                             </FormControl>
@@ -96,10 +96,10 @@ try {
                           <FormControl required fullWidth margin="normal">
                           <TextField 
                             required
-                            id="lastName"
+                            id="lastname"
                             label="Last Name"
-                            name="lastName"
-                            value={formState.lastName}
+                            name="lastname"
+                            value={formState.lastname}
                             onChange={handleChange}
                             />
                          
