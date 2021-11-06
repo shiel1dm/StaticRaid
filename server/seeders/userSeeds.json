@@ -5,7 +5,7 @@
     "username": "KrabbyPatty",
     "email": "jellyfisher@bikinibottom.com",
     "password": "garyisthebest",
-    "teams": ["World of Warcraft", "Destiny 2", "Smite", "MMO", "MOBA"]
+    "teams": ["World of Warcraft", "Destiny 2", "Smite", "Call of Duty", "Halo"]
   },
   {
     "firstName": "Bob",
@@ -21,7 +21,7 @@
     "username": "Ringbearer",
     "email": "frodobaggins@shiremail.com",
     "password": "ilovetheshire",
-    "teams": ["Lord of the Rings Online", "Ringbearers", "FortheShire", "MMO"]
+    "teams": ["Lord of the Rings Online", "Ringbearers", "FortheShire"]
   },
   {
     "firstName": "Bilbo",
@@ -29,7 +29,7 @@
     "username": "RiddlesintheDark",
     "email": "bilbobaggins@shiremail.com",
     "password": "thereandbackagain",
-    "teams": ["Dungeons & Dragons", "Lord of the Rings Online", "Ringbearers", "MMO"]
+    "teams": ["Dungeons & Dragons", "Lord of the Rings Online", "Ringbearers", "Destiny 2"]
   },
   {
     "firstName": "Samwise",
@@ -37,7 +37,7 @@
     "username": "SamwisetheBrave",
     "email": "samthegardener@shiremail.com",
     "password": "iaintdroppinnoeaves",
-    "teams": ["Lord of the Rings Online", "Ringbearers", "FortheShire", "MMO", "Farming Simulator"]
+    "teams": ["Lord of the Rings Online", "Ringbearers", "FortheShire", "Farming Simulator"]
   },
   {
     "firstName": "Brandon",
@@ -45,6 +45,6 @@
     "username": "CosmereCreator",
     "email": "brandonsanderson@email.com",
     "password": "investiture",
-    "teams": ["Cosmere", "Worldbuilders", "Mistborn", "Magic: The Gathering"]
+    "teams": ["Cosmere", "Worldbuilders", "Mistborn", "Magic: The Gathering", "League of Legends"]
   }
 ]
