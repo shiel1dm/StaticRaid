@@ -3,9 +3,9 @@ const mongoose = require('mongoose');
 const { Schema } = mongoose;
 
 const teamSchema = new Schema({
-    teamname: {
+    teamName: {
         type: String,
-        required: true,
+        require: true,
         trim: true
     },
     grouptype: {

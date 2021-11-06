@@ -119,12 +119,9 @@ try {
                             fullWidth
                             id="firstName"
                             label="First Name"
+                            value={formState.firstName}
+                            onChange={handleChange}
                             >
-                            <Input
-                          disableUnderline={true}
-                          value={formState.firstName}
-                          onChange={handleChange}
-                        />
                           </TextField>
                           </FormControl>
                         </Grid>
@@ -134,13 +131,10 @@ try {
                             required
                             id="lastName"
                             label="Last Name"
-                            name="lastName">
-                            <Input
                             name="lastName"
-                            type="lastName"
                             value={formState.lastName}
                             onChange={handleChange}
-                        />
+                            >
                           </TextField>
                           </FormControl>
                         </Grid>
@@ -148,18 +142,14 @@ try {
                         <FormControl required fullWidth margin="normal">
                         <TextField htmlFor="email" 
                           required
-                          label="E-mail">
-                          <Input
-                          name="email"
-                          type="email"
+                          label="E-mail"
                           autoComplete="email"
-                          disableUnderline={true}
                           value={formState.email}
-                          onChange={(e) => setEmail(e.target.value)}
-                        />
+                          onChange={handleChange}
+                          >
                         </TextField>
                         
-                      </FormControl>
+                        </FormControl>
                       </Grid>
                         <Grid item xs={12}>
                           <TextField
@@ -168,12 +158,9 @@ try {
                             id="username"
                             label="Username"
                             name="username"
+                            value={formState.username}
+                            onChange={handleChange}
                             >
-                            <Input
-                          disableUnderline={true}
-                          value={formState.username}
-                          onChange={handleChange}
-                        />
                           </TextField>
                         </Grid>
                         <Grid item xs={12}>
@@ -184,12 +171,9 @@ try {
                             label="Password"
                             type="password"
                             id="password"
+                            value={formState.password}
+                            onChange={handleChange}
                             >
-                            <Input
-                          disableUnderline={true}
-                          value={formState.password}
-                          onChange={handleChange}
-                        />
                           </TextField>
                         </Grid>
                       </Grid>
@@ -216,10 +200,10 @@ try {
                       </Grid>
                     </Box>
             )}
-            </Container>
-                  </Box>
-                </Container>
-              </ThemeProvider>
+          </Container>
+        </Box>
+      </Container>
+    </ThemeProvider>
   );
 }
 
