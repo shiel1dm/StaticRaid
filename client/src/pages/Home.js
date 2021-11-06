@@ -1,20 +1,29 @@
 import React, { useEffect, useState, Component } from 'react'
-import { createTheme, ThemeProvider } from '@mui/material/styles';
 import { makeStyles } from '@material-ui/core/styles';
-import { CssBaseline } from '@material-ui/core';
+import { CssBaseline, Container } from '@material-ui/core';
+import Grid from '@mui/material/Grid';
+import Box from '@mui/material/Box';
 import Header from '../components/Header'
 import About from '../components/About';
+import Team from './Team';
 import ScheduleCard from '../components/ScheduleCard';
 
 
 
 const useStyles = makeStyles((theme) => ({
     root: {
-        display: 'flex',
-        justifyContent: 'center',
         textAlign: 'center',
-        alighnItems: 'center',
-        height: '100vh',
+        display: 'flex',
+        flexWrap: 'wrap',
+        flexDirection: 'column',
+    },
+    header: {
+        display: 'block',
+    },
+    heading: {
+        color: "#999D9A",
+        fontSize: '5em',
+        textAlign: 'center',
     },
 }));
 
@@ -23,11 +32,20 @@ export default function Home() {
 const classes = useStyles();
     
 return (
-    <div className={classes.root}>
-        <CssBaseline />
-        <Header />
-        <About />
-        <ScheduleCard />
-    </div>
+    <div>
+    <Box>
+        <div className={classes.root}>
+                    <h1 className={classes.heading}>
+                        Welcome to 
+                        <span className={classes.colorText}> StaticRaid.</span>
+                    </h1>
+                </div>
+    </Box>
+         
+                
+         
+                <Team />
+            
+     </div>
     )
 };

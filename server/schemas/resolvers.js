@@ -1,5 +1,5 @@
 const { AuthenticationError } = require('apollo-server-express');
-const { User, Team } = require('../models');
+const { User, Team, Schedule } = require('../models');
 const { signToken } = require('../utils/auth');
 
 const resolvers = {
@@ -7,7 +7,6 @@ const resolvers = {
     users: async () => {
       return User.find();
     },
-
     user: async (parent, { userId }) => {
       return User.findOne({ _id: userId });
     },
@@ -18,11 +17,9 @@ const resolvers = {
       }
       throw new AuthenticationError('You must be logged in!')
     }
-    
-  },
 
-    teams: async () => {
-      return Team.find();
+
+
   },
 
 Mutation: {
@@ -69,9 +66,11 @@ Mutation: {
     throw new AuthenticationError('You must be logged in!');
   },
 
-
-},
 }
-};
+}
+//teams: async () => {
+//  return Team.find();
+
 
 module.exports = resolvers;
+

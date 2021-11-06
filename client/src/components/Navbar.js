@@ -8,25 +8,24 @@ import {
   Container
 } from "@material-ui/core";
 import { Link } from "react-router-dom";
-import Auth from '../../utils/auth';
+import Auth from '../utils/auth';
 
 const useStyles = makeStyles((theme) => ({
   root: {
-    backgroundColor: "black",
+    width: "fullWidth",
   },
   navlinks: {
-    marginLeft: theme.spacing(5),
     display: "flex",
   },
  logo: {
     flexGrow: "1",
-    cursor: "pointer",
+    fontSize: "25px",
   },
   link: {
     textDecoration: "none",
     color: "white",
     fontSize: "20px",
-    marginLeft: theme.spacing(20),
+    marginLeft: theme.spacing(5),
     "&:hover": {
       color: "yellow",
       borderBottom: "1px solid white",

@@ -3,9 +3,10 @@ const mongoose = require('mongoose');
 const { Schema, model } = mongoose;
 
 const teamSchema = new Schema({
-    teamName: {
+
+    teamname: {
         type: String,
-        require: true,
+        required: true,
         trim: true
     },
     gamename: {
@@ -16,7 +17,6 @@ const teamSchema = new Schema({
     grouptype: {
         type: String,
         enum: ['game, raid, guild, party, server, social'],
-       
         trim: true
     },    
     teamSize: {
@@ -26,8 +26,12 @@ const teamSchema = new Schema({
     users: {
         type: Schema.Types.ObjectId,
         ref: 'User'
-    }
-})
+    },
+    groupCreator: {
+        type: String,
+        User: this.user
+    },    
+});
 
 const Team = model('Team', teamSchema);
 

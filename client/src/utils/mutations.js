@@ -35,10 +35,7 @@ export const ADD_USER = gql`
 export const ADD_TEAM = gql`
   mutation addTeam($teamname: String!, $gamename: String!) {
     addTeam(teamname: $teamname, gamename: $gamename) {
-
-        teamname
-        gamename
-      
+          teamname
+          gamename
     }
-    
   }`

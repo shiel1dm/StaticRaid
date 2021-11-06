@@ -1,24 +1,56 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import {  Container, Box } from '@material-ui/core';
-import { createTheme, ThemeProvider, Grid, TextField } from '@mui/material';
-import Typography from '@mui/material/Typography';
+import { Grid, TextField } from '@mui/material';
+import { makeStyles } from '@material-ui/core/styles';
 import { FormControl, Button } from "@material-ui/core";
-import GroupsRoundedIcon from '@mui/icons-material/GroupsSharp';
 import { ADD_TEAM } from '../utils/mutations';
 import { useMutation } from '@apollo/client';
 import Auth from '../utils/auth';
+import { QUERY_ME, QUERY_TEAMS } from '../utils/queries';
 
 
-const Team = () => {
-  const theme = createTheme();
-  const[newTeam, setNewTeam] = useState('');
+
+const useStyles = makeStyles((theme) => ({
+  root: {
+      display: 'flex',
+      justifyContent: 'center',
+      textAlign: 'center',
+
+  },
+  header: {
+    fontSize: '40px',
+    color: 'darkblue',
+  },
+}));
+
+const TeamCreate = () => {
+  const classes = useStyles();
+  
   const [formState, setFormState] = useState({
     teamname: '',
     gamename: '',
   });
-
   const [addTeam, { error, data }] = useMutation(ADD_TEAM);
+
+  /*const [addTeam, { error, data }] = useMutation(ADD_TEAM, {
+    update(cache, { data: { addTeam }}) {
+      try {
+      const { teams } = cache.readQuery({ query: QUERY_TEAMS });
+      cache.writeQuery({
+        query: QUERY_TEAMs,
+        data: { teams: [addTeam, ...teams ]},
+      });
+    } catch (e) {
+      console.error(e);
+    }
+    const { me } = cache.readQuery({ query: QUERY_ME });
+    cache.writeQuery({
+      query: QUERY_ME,
+      data: { me: { ...me, teams: [ ...me.teams, addTeam]}},
+    });
+    },
+  });*/
 
   const handleChange = (event) => {
     const { name, value } = event.target;
@@ -36,18 +68,19 @@ const Team = () => {
     const { newTeam } = await addTeam({
       variables: { ...formState },
     })
-    setNewTeam('');
-    alert('Your Team has been created!');
+    console.table(`Your team ${teamname.value} for ${gamename.value} has been created! `)
+    console.log(JSON.stringify(data));
+    return JSON.stringify(data);
+  
 
+    } catch (e) {
+      console.error(e);
+    }
 
-  } catch (e) {
-    console.error(e);
-  }
-
-  };
+    };
 
   return (
-    <ThemeProvider theme={theme}>
+
         <Container>
             <Box
             sx={{
@@ -57,11 +90,10 @@ const Team = () => {
                 alignItems: 'center',
             }}
             >
-              <GroupsRoundedIcon sx={{ fontSize:40, bgcolor: 'secondary.main' }}>
-              </GroupsRoundedIcon>
-              <Typography component="h1" variante="h5">
+        
+              <h1 className={classes.header}>
                 Create A Team!
-              </Typography>
+              </h1>
               {Auth.loggedIn() ? (
                   <>
                     
@@ -109,6 +141,7 @@ const Team = () => {
                 {error.message}
               </div>
             )}
+            
           </Box>
         </>
       ) : (
@@ -121,8 +154,8 @@ const Team = () => {
                 </Box>
          
         </Container>
-    </ThemeProvider>
+ 
   )
 } 
 
-export default Team;
+export default TeamCreate;

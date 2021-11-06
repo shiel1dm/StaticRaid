@@ -10,15 +10,25 @@ import {
 import { setContext } from "@apollo/client/link/context";
 import { BrowserRouter, Router, Route, Redirect, Switch } from "react-router-dom";
 import { Container } from "@material-ui/core";
+import { makeStyles } from "@material-ui/core";
 import Login from "./pages/Login";
 import Signup from "./pages/Signup";
-import Navbar from "./components/Navbar/Navbar";
+import Navbar from "./components/Navbar";
 import Home from "./pages/Home";
 import Team from "./pages/Team";
 import { useHistory } from "react-router-dom";
 import Auth from './utils/auth';
 
-
+const useStyles = makeStyles(theme => ({
+  root: {
+    display: 'flex',
+    flexDirection: 'column',
+    flexWrap: 'wrap',
+  },
+  authWrapper: {
+    display: 'flex',
+  },
+}))
 
 // Construct our main GraphQL API endpoint
 const httpLink = createHttpLink({
@@ -46,16 +56,18 @@ const client = new ApolloClient({
 
 function App() {
   const history = useHistory();
+  const classes = useStyles();
 
 
   
   return (
+<Container className={classes.root}>
 <ApolloProvider client={client}>
       <BrowserRouter>
       <Container maxWidth="xl">
         <Navbar />
-        <Team />
-        <div className="auth-wrapper">
+        
+        <div className="authWrapper">
         <div className="auth-inner">
           <Switch>
             <Route exact path="/login" >
@@ -73,6 +85,7 @@ function App() {
       </Container>
       </BrowserRouter>
     </ApolloProvider>
+    </Container>
   );
 }
 

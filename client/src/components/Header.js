@@ -10,10 +10,8 @@ const useStyles = makeStyles((theme) => ({
         height: '100vh',
     },
     heading: {
-        backgroundColor: "black",
         color: "#999D9A",
-        fontSize: '3em',
-        padding: "5px",
+        fontSize: '5em',
     }
 }));
 

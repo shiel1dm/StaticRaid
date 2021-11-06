@@ -11,7 +11,8 @@ const typeDefs = gql`
   }
 
   type Team {
-    team: String
+    addTeam: Team
+    teams: [Team]
     _id: ID
     teamname: String
     gamename: String
@@ -23,10 +24,12 @@ const typeDefs = gql`
     user: User
   }
 
+ 
   type Query {
-    users: [User]!
-    user(userId: ID!): User
+    users: [User]
+    user(username: String!): User
     me: User
+    teams: [Team]!
   }
 
   type Mutation {
@@ -34,9 +37,9 @@ const typeDefs = gql`
     login(username: String!, password: String!): Auth
     addTeam(teamname: String!, gamename: String!): Team
     removeTeam(teamname: String!): Team
+    team(username: String): [Team]
   }
+
 `;
 
 module.exports = typeDefs;
-
-
