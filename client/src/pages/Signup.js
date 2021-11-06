@@ -11,8 +11,7 @@ import Container from '@mui/material/Container';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 
 import { useMutation } from '@apollo/client';
-import { ADD_USER } from '../utils/mutations.js';
-
+import { ADD_USER } from '../utils/mutations';
 import Auth from '../utils/auth';
 
 
@@ -25,14 +24,12 @@ const Signup = () => {
     firstName: '',
     lastName: '',
     username: '',
-    email: '',
-    password: '',
-  });
-  const [addUser, { error, data }] = useMutation(ADD_USER);
+    email: '', 
+    password: '' });
+  const [addUser, {error, data}] = useMutation(ADD_USER);
 
   const handleChange = (event) => {
     const { name, value } = event.target;
-    console.log('changes')
     setFormState({
       ...formState,
       [name]: value,
@@ -43,7 +40,7 @@ const Signup = () => {
     event.preventDefault();
     console.log(formState);
 
-    try {
+try {
       const { data } = await addUser({
         variables: { ...formState },
       });
@@ -81,7 +78,7 @@ const Signup = () => {
                     <Box component="form"sx={{ mt: 3 }} onSubmit={handleSubmit}>
                       <Grid container spacing={2}>
                         <Grid item xs={12} sm={6}>
-                        <FormControl required fullWidth margin="normal">
+                          <FormControl required fullWidth margin="normal">
                           <TextField
                             autoComplete="given-name"
                             name="firstName"
@@ -142,7 +139,6 @@ const Signup = () => {
                             label="Password"
                             type="password"
                             id="password"
-
                           value={formState.password}
                           onChange={handleChange}
                         />

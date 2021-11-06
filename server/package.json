@@ -1,12 +1,14 @@
 {
-  "name": "mern-server",
+  "name": "static-raid-server",
   "version": "1.0.0",
   "description": "",
   "main": "server.js",
   "scripts": {
     "start": "node server.js",
     "watch": "nodemon",
-    "seed": "node seeders/seed.js"
+    "seed": "node seeders/seed.js",
+    "lint": "eslint . --ext .js,.jsx --quiet",
+    "lint --fix": "eslint . --ext .js,.jsx --fix"
   },
   "keywords": [],
   "author": "",

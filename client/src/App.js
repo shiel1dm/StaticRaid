@@ -26,7 +26,7 @@ const httpLink = createHttpLink({
 });
 
 // Construct request middleware that will attach the JWT token to every request as an `authorization` header
-const authLink = setContext((_, { headers }) => {
+const authLink = setContext(({ headers }) => {
   // get the authentication token from local storage if it exists
   const token = localStorage.getItem("id_token");
   // return the headers to the context so httpLink can read them
@@ -50,7 +50,7 @@ function App() {
 
   
   return (
-    <ApolloProvider client={client}>
+<ApolloProvider client={client}>
       <BrowserRouter>
       <Container maxWidth="xl">
         <Navbar />

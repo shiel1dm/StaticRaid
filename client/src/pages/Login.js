@@ -122,11 +122,11 @@ const Login = () => {
                         {error && (
               <div className="my-3 p-3 bg-danger text-white">
                 {error.message}
-                  </div>
-                        )}
+              </div>
+                    )}
                       <Grid container justifyContent="flex-end">
                         <Grid item>
-                          <Link to="/signup" variant="body2">
+                          <Link to="/Signup" variant="body2">
                             New user? Sign up here.
                           </Link>
                         </Grid>

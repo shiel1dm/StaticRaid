@@ -18,11 +18,15 @@ const teamSchema = new Schema({
         enum: ['game, raid, guild, party, server, social'],
        
         trim: true
-    },
-    groupCreator: {
-        type: String,
-        User: this.user
     },    
+    teamSize: {
+        type: Number,
+        require: true
+    },
+    users: {
+        type: Schema.Types.ObjectId,
+        ref: 'User'
+    }
 })
 
 const Team = model('Team', teamSchema);
