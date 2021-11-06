@@ -1,6 +1,4 @@
-const mongoose = require('mongoose');
-
-const { Schema } = mongoose;
+const { Schema, SchemaTypes, model } = require('mongoose');
 
 const scheduleSchema = new Schema({
     title: {
@@ -14,18 +12,18 @@ const scheduleSchema = new Schema({
     time: {
         type: String,
         required: 'Please pick a time!',
-        trim: true,
+        trim: true
     },
-    users: {
-        type: Schema.Types.ObjectId,
+    users: [{
+        type: SchemaTypes.ObjectId,
         ref: 'User'
-    },
-    teams: {
-        type: Schema.Types.ObjectId,
+    }],
+    teams: [{
+        type: SchemaTypes.ObjectId,
         ref: 'Team'
-    }
+    }]
 });
 
-const Schedule = mongoose.model('Schedule', scheduleSchema);
+const Schedule = model('Schedule', scheduleSchema);
 
 module.exports = Schedule;

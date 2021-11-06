@@ -125,8 +125,6 @@ try {
                             id="username"
                             label="Username"
                             name="username"
-                          
-                          
                           value={formState.username}
                           onChange={handleChange}
                         />
@@ -168,10 +166,10 @@ try {
                       </Grid>
                     </Box>
             )}
-            </Container>
-                  </Box>
-                </Container>
-              </ThemeProvider>
+          </Container>
+        </Box>
+      </Container>
+    </ThemeProvider>
   );
 }
 
