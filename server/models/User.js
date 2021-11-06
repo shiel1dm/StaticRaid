@@ -1,14 +1,8 @@
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
->>>>>>> main
+
 const { Schema, model } = require('mongoose');
 const bcrypt = require('bcrypt');
 
 const userSchema = new Schema({
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
   firstName: {
     type: String,
     required: true,
@@ -19,9 +13,6 @@ const userSchema = new Schema({
     required: true,
     trim: true
   },
->>>>>>> main
-=======
->>>>>>> main
   username: {
     type: String,
     required: true,
@@ -57,10 +48,6 @@ userSchema.methods.isCorrectPassword = async function (password) {
 
 const User = model('User', userSchema);
 
-<<<<<<< HEAD
-<<<<<<< HEAD
-module.exports = User;
-=======
 const mongoose = require('mongoose');
 const { Schema, model } = require('mongoose');
 const bcrypt = require('bcrypt');
@@ -116,10 +103,3 @@ userSchema.methods.isCorrectPassword = async function(password) {
 const User = mongoose.model('User', userSchema);
   
 module.exports = User;
->>>>>>> 342963d7b8f359b7d7dcc928bd89305abd40b439
-=======
-module.exports = User;
->>>>>>> login/navbar_component
-=======
-module.exports = User;
->>>>>>> main
