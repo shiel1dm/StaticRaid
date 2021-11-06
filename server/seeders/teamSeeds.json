@@ -1,5 +1,62 @@
 [
-    {
-      "teamName": "Lord of the Rings Online"
-    }
-  ]
+  {
+    "teamName": "Lord of the Rings Online",
+    "gamename": "Lord of the Rings Online"
+  },
+  {
+    "teamName": "World of Warcraft",
+    "gamename": "World of Warcraft"
+  },
+  {
+    "teamName": "Destiny 2",
+    "gamename": "Destiny 2"
+  },
+  {
+    "teamName": "Smite",
+    "gamename": "Smite"
+  },
+  {
+    "teamName": "Call of Duty",
+    "gamename": "Call of Duty"
+  },
+  {
+    "teamName": "Halo",
+    "gamename": "Halo"
+  },
+  {
+    "teamName": "Sim City",
+    "gamename": "Sim City"
+  },
+  {
+    "teamName": "Valheim",
+    "gamename": "Valheim"
+  },
+  {
+    "teamName": "World of Warcraft",
+    "gamename": "World of Warcraft"
+  },
+  {
+    "teamName": "Ringbearers",
+    "gamename": "Lord of the Rings Online"
+  },
+  {
+    "teamName": "FortheShire",
+    "gamename": "Lord of the Rings Online"
+  },
+  {
+    "teamName": "Dungeons & Dragons",
+    "gamename": "Dungeons & Dragons"
+  },
+  {
+    "teamName": "Farming Simulator",
+    "gamename": "Farming Simulator"
+  },
+  {
+    "teamName": "Magic: The Gathering",
+    "gamename": "Magic: The Gathering"
+  },
+  {
+    "teamName": "League of Legends",
+    "gamename": "League of Legends"
+  }
+]
