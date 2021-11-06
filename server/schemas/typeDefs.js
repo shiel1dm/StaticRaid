@@ -8,14 +8,26 @@ const typeDefs = gql`
     username: String
     email: String
     teams: [Team]!
+    joinedTeams: [Team]
+    userSchedule: [Schedule]
   }
 
   type Team {
-    team: String
     _id: ID
-    teamname: String
+    teamName: String
     gamename: String
     grouptype: String
+    teamSize: Number
+    teamSchedule: [Schedule]
+    users: [User]
+  }
+
+  type Schedule {
+    title: String
+    date: Date
+    time: String
+    users: [User]
+    teams: [Team]
   }
 
   type Auth {
@@ -27,16 +39,17 @@ const typeDefs = gql`
     users: [User]!
     user(userId: ID!): User
     me: User
+    teams: [Team]
+    team(teamId: ID!): Team
   }
 
   type Mutation {
     addUser(firstName: String!, lastName: String!, username: String!, email: String!, password: String!): Auth
     login(username: String!, password: String!): Auth
-    addTeam(teamname: String!, gamename: String!): Team
-    removeTeam(teamname: String!): Team
+    addTeam(teamName: String!, gamename: String!): Team
+    leaveTeam(teamName: String!): Team
+    joinTeam(teamName: String!): Team
   }
 `;
 
 module.exports = typeDefs;
-
-

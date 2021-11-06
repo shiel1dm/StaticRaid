@@ -1,6 +1,4 @@
-const mongoose = require('mongoose');
-
-const { Schema, model } = mongoose;
+const { Schema, SchemaTypes, model } = require('mongoose');
 
 const teamSchema = new Schema({
     teamName: {
@@ -16,18 +14,21 @@ const teamSchema = new Schema({
     grouptype: {
         type: String,
         enum: ['game, raid, guild, party, server, social'],
-       
         trim: true
     },    
     teamSize: {
         type: Number,
         require: true
     },
-    users: {
-        type: Schema.Types.ObjectId,
+    teamSchedule: [{
+        type: SchemaTypes.ObjectId,
+        ref: 'Schedule'
+      }],
+    users: [{
+        type: SchemaTypes.ObjectId,
         ref: 'User'
-    }
-})
+    }]
+});
 
 const Team = model('Team', teamSchema);
 

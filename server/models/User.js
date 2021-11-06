@@ -1,10 +1,15 @@
-const mongoose = require('mongoose');
-const { Schema } = mongoose;
+const { Schema, SchemaTypes, model } = require('mongoose');
 const bcrypt = require('bcrypt');
-const { Team, Schedule } = require('../models');
-
 
 const userSchema = new Schema({
+  firstName: {
+    type: String,
+    required: true,
+  },
+  lastName: {
+    type: String,
+    required: true,
+  },
   username: {
     type: String,
     required: true,
@@ -16,21 +21,25 @@ const userSchema = new Schema({
     type: String,
     required: true,
     unique: true,
-    match: [/.+@.+\..+/, 'Must match an email address!'],
+    validate: [/.+@.+\..+/, 'Please enter a valid email address!'],
   },
   password: {
     type: String,
     required: true,
     minlength: 5,
   },
-  teams: {
-    type: Schema.Types.ObjectId,
+  joinedTeams: [{
+    type: SchemaTypes.ObjectId,
     ref: 'Team'
-  },
-  schedule: {
-    type: Schema.Types.ObjectId,
+  }],
+  userSchedule: [{
+    type: SchemaTypes.ObjectId,
     ref: 'Schedule'
-  }
+  }],
+  teamSchedule: [{
+    type: SchemaTypes.ObjectId,
+    ref: 'Schedule'
+  }]
 });
 
 userSchema.pre('save', async function(next) {
@@ -40,8 +49,7 @@ userSchema.pre('save', async function(next) {
     }
 
     next();
-});
-  
+});  
 
 userSchema.methods.isCorrectPassword = async function(password) {
     return await bcrypt.compare(password, this.password);
