@@ -19,17 +19,19 @@ Social site for gamers that allows users to create and manage groups (raid teams
 
 * [Questions](#questions)
 
+* [Deployment](#deployment)
+
 ## Installation
 
 To install necessary dependencies, run the following command:
 
 ```
-npm i
+npm install
 ```
 
 ## Usage
 
-Developing. End goal is run `npm run seed` to seed DB followed by `npm start`. App will be deployed on Heroku and link will be provided
+Developing. End goal is run `npm run seed` to seed DB followed by `npm start`. App will be deployed on Heroku and link will be provided.
 
 ## License
 
@@ -56,4 +58,8 @@ npm test
 ## Questions
 
 If you have any questions about the repo, open an issue or contact me directly at run91.macg@gmail.com. You can find more of my work at [shiel1dm](https://github.com/shiel1dm/).
+
+## Deployment
+
+Deployed via Heroku at: [Static Raid](https://dashboard.heroku.com/apps/aqueous-inlet-60686/settings)
 
