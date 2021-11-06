@@ -1,6 +1,4 @@
-const mongoose = require('mongoose');
-
-const { Schema, model } = mongoose;
+const { Schema, SchemaTypes, model } = require('mongoose');
 
 const teamSchema = new Schema({
 
@@ -23,14 +21,19 @@ const teamSchema = new Schema({
         type: Number,
         require: true
     },
-    users: {
-        type: Schema.Types.ObjectId,
+    teamSchedule: [{
+        type: SchemaTypes.ObjectId,
+        ref: 'Schedule'
+      }],
+    users: [{
+        type: SchemaTypes.ObjectId,
         ref: 'User'
     },
     groupCreator: {
         type: String,
         User: this.user
     },    
+    }]
 });
 
 const Team = model('Team', teamSchema);
