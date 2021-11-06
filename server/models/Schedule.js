@@ -1,4 +1,6 @@
 const mongoose = require('mongoose');
+const { User } = require('./User');
+const { Team } = require('./Team');
 
 const { Schema } = mongoose;
 
@@ -14,7 +16,7 @@ const scheduleSchema = new Schema({
     time: {
         type: String,
         required: 'Please pick a time!',
-        trim: true,
+        trim: true
     },
     users: {
         type: Schema.Types.ObjectId,

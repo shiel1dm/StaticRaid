@@ -1,5 +1,5 @@
 const { AuthenticationError } = require('apollo-server-express');
-const { User, Team, Schedule } = require('../models');
+const { User, Team } = require('../models');
 const { signToken } = require('../utils/auth');
 
 const resolvers = {
@@ -21,6 +21,9 @@ const resolvers = {
     
   },
 
+    teams: async () => {
+      return Team.find();
+  },
 
 Mutation: {
   addUser: async (parent, { username, email, password }) => {
@@ -35,13 +38,13 @@ Mutation: {
       throw new AuthenticationError('No user found with this email address');
     }
 
-    const correctPw = await user.isCorrectPassword(password);
+      const correctPw = await user.isCorrectPassword(password);
 
-    if (!correctPw) {
-      throw new AuthenticationError('Incorrect credentials');
-    }
+      if (!correctPw) {
+        throw new AuthenticationError('Incorrect credentials');
+      }
 
-    const token = signToken(user);
+      const token = signToken(user);
 
     return { token, user };
   },
@@ -68,6 +71,7 @@ Mutation: {
 
 
 },
+}
 };
 
 module.exports = resolvers;
