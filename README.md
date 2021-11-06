@@ -61,5 +61,5 @@ If you have any questions about the repo, open an issue or contact me directly a
 
 ## Deployment
 
-Deployed via Heroku at: [Static Raid](https://dashboard.heroku.com/apps/aqueous-inlet-60686/settings)
+Deployed via Heroku at: [Static Raid](https://aqueous-inlet-60686.herokuapp.com/)
 
