@@ -3,7 +3,7 @@ import Nylas from 'nylas';
 import Button from '@mui/material/Button';
 
 Nylas.config((
-    clientId : 'aq4yv5s2t1b56q5y2vn3dph9a',
+    clientId: 'aq4yv5s2t1b56q5y2vn3dph9a',
     clientSecret: '37t2flhoxx4uo5b6qsw581v7',
 ));
 
@@ -15,6 +15,8 @@ const event = nylas.events.count()
 });
 
 export default Scheduler
+
+//===Below is the code referenced for the above code
 
 /*const Nylas = require('nylas');
 
@@ -44,20 +46,16 @@ event.save({ notify_participants: true }).then(event => {
     console.log(event);
 });*/
 
+//=======Below is the button that needs to be converted/translated
+//====As well as the call to display the modal
 
+/*
 <Button 
 id="schedule-editor"
 > 
 Launch Scheduler
 </Button>
 
-/*<Button
-type="submit"
-fullWidth
-variant="contained"
-sx={{ mt: 3, mb: 2 }}
->Login
-</Button>*/
 
 var btn = document.getElementById('schedule-editor');
 btn.addEventListener('click', function() {
@@ -78,7 +76,7 @@ btn.addEventListener('click', function() {
             },
         },
     });
-});  
+});*/
 
 
 
