@@ -10,12 +10,14 @@ import {
 import { setContext } from "@apollo/client/link/context";
 import { BrowserRouter, Router, Route, Redirect, Switch } from "react-router-dom";
 import { Container } from "@material-ui/core";
+import { makeStyles } from "@material-ui/core";
 import Login from "./pages/Login";
 import Signup from "./pages/Signup";
 import Navbar from "./components/Navbar/Navbar";
 import About from "./pages/About";
+import Team from "./pages/Team";
 import { useHistory } from "react-router-dom";
-import { makeStyles } from "@material-ui/core/styles";
+import Auth from './utils/auth';
 
 const useStyles = makeStyles(theme => ({
   root: {
@@ -53,30 +55,24 @@ function App() {
   const history = useHistory();
 const classes = useStyles();
 
-  async function handleLogout() {
-    await Auth.signOut();
   
-    userHasAuthenticated(false);
-  
-    history.push("/login");
-  }
   return (
     <container className={classes.root}>
     <ApolloProvider client={client}>
       <BrowserRouter>
       <Container maxWidth="xl">
         <Navbar />
+        <Team />
         <div className="auth-wrapper">
         <div className="auth-inner">
           <Switch>
-            <Route exact path="/" >
-              <Login />
-            </Route>
-            <Route exact path="/login">
-              <Login />
+            <Route exact path="/login" >
+              <Login /> 
             </Route>
             <Route exact path="/signup">
               <Signup />
+            </Route>
+            <Route exact path="/">
             </Route>
           </Switch>
           <About />

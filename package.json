@@ -6,7 +6,7 @@
   "scripts": {
     "start": "node server/server.js",
     "develop": "concurrently \"cd server && npm run watch\" \"cd client && npm start\"",
-    "install": "cd server && npm i && cd ../client && npm i",
+    "install": "cd server && npm install && cd ../client && npm install",
     "seed": "cd server && npm run seed",
     "build": "cd client && npm run build"
   },
@@ -17,25 +17,13 @@
     "concurrently": "^5.1.0"
   },
   "dependencies": {
-<<<<<<< HEAD
     "@material-ui/core": "^4.12.3",
     "@material-ui/icons": "^4.11.2",
     "graphql": "^16.0.0",
-    "@apollo/client": "^3.4.16"
-=======
+    "@apollo/client": "^3.4.16",
 
     "@emotion/react": "^11.5.0",
     "@emotion/styled": "^11.3.0",
-    "@material-ui/core": "^4.12.3",
-    "@material-ui/icons": "^4.11.2",
-    "@mui/material": "^5.0.6",
-    "graphql": "^16.0.0"
-
-    "@apollo/client": "^3.4.16",
-    "@material-ui/core": "^4.12.3",
-    "@material-ui/icons": "^4.11.2",
-    "graphql": "^16.0.1"
-
->>>>>>> main
+    "@mui/material": "^5.0.6"
   }
 }

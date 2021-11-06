@@ -8,6 +8,7 @@ import {
   Container
 } from "@material-ui/core";
 import { Link } from "react-router-dom";
+import Auth from '../../utils/auth';
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -36,6 +37,45 @@ const useStyles = makeStyles((theme) => ({
 function Navbar() {
   const classes = useStyles();
 
+  async function handleLogout() {
+    await Auth.signOut();
+  
+    userHasAuthenticated(false);
+  
+    history.push("/login");
+  }
+
+  function showNavigation() {
+    if (Auth.loggedIn()) {
+      return (
+        <Toolbar>
+          <div classsName={classes.navlinks}>
+          <Link to="/schedule" className={classes.link}>
+              Scheduler
+            </Link>
+            <Link to="/" className={classes.link}onClick={() => Auth.logout()}>
+              Logout
+            </Link>
+          </div>
+        </Toolbar>
+      );
+    } else {
+      return (
+        <Toolbar>
+          <div className={classes.navlinks}>
+            <Link to="/signup" className={classes.link}>
+              Signup
+            </Link>
+            <Link to="/login" className={classes.link}>
+              Login
+            </Link>
+          </div>
+         </Toolbar>
+      );
+    }
+  }
+
+
   return (
     <Container className={classes.navigation}>
     <AppBar position="static" style={{background: "#313237" }}>
@@ -48,16 +88,8 @@ function Navbar() {
             <Link to="/" className={classes.link}>
               Home
             </Link>
-            <Link to="/about" className={classes.link}>
-              About
-            </Link>
-            <Link to="/schedule" className={classes.link}>
-              Scheduler
-            </Link>
-            <Link to="/teams" className={classes.link}>
-              Teams
-            </Link>
           </div>
+          {showNavigation()}
       </Toolbar>
     </AppBar>
     </Container>

@@ -1,7 +1,6 @@
 const { gql } = require('apollo-server-express');
 
-const typeDefs = gql
-`
+const typeDefs = gql`
   type User {
     _id: ID
     username: String
@@ -11,8 +10,10 @@ const typeDefs = gql
   }
 
   type Team {
+    team: String
     _id: ID
     teamname: String
+    gamename: String
     grouptype: String
   }
 
@@ -56,7 +57,7 @@ const typeDefs = gql
 =======
     addUser(username: String!, email: String!, password: String!): Auth
     login(username: String!, password: String!): Auth
-    addTeam(teamname: String!): Team
+    addTeam(teamname: String!, gamename: String!): Team
     removeTeam(teamname: String!): Team
 >>>>>>> main
   }

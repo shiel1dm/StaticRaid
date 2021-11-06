@@ -31,6 +31,7 @@ const resolvers = {
       throw new AuthenticationError('You must be logged in!')
     }
 <<<<<<< HEAD
+<<<<<<< HEAD
 >>>>>>> login/navbar_component
   },
 
@@ -65,6 +66,9 @@ const resolvers = {
 module.exports = resolvers;
 =======
 =======
+=======
+    
+>>>>>>> main
   },
 
 
@@ -93,20 +97,13 @@ Mutation: {
     return { token, user };
   },
 
-  addTeam: async (parent, { userId, team }, context) => {
+  addTeam: async (parent, { userId, teamname, gamename }, context) => {
     if (context.user) {
-      return User.findOneAndUpdate(
-        { _id: userId },
-        {
-          $addToSet: { teams: team },
-        },
-        {
-          new: true,
-          runValidators: true,
-        }
-      );
-    }
-    throw new AuthenticationError('You must be logged in!');
+      const team = await Team.create({ teamname, gamename, creator: userId });
+      return team;
+      } else {
+        throw new AuthenticationError('You must be logged in!');
+      }
   },
 
   removeTeam: async (parent, { team }, context) => {
@@ -119,6 +116,8 @@ Mutation: {
     }
     throw new AuthenticationError('You must be logged in!');
   },
+
+
 },
 };
 
