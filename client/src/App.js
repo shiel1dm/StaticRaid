@@ -14,7 +14,7 @@ import { makeStyles } from "@material-ui/core";
 import Login from "./pages/Login";
 import Signup from "./pages/Signup";
 import Navbar from "./components/Navbar/Navbar";
-import About from "./pages/About";
+import Home from "./pages/Home";
 import Team from "./pages/Team";
 import { useHistory } from "react-router-dom";
 import Auth from './utils/auth';
@@ -75,7 +75,7 @@ const classes = useStyles();
             <Route exact path="/">
             </Route>
           </Switch>
-          <About />
+          <Home />
         </div>
       </div>
       </Container>
